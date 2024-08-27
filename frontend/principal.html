@@ -49,7 +49,8 @@
         }
 
         .icone-perfil{
-            margin-top: 10%;
+            margin-top: 50%;
+            margin-left: 2%;
         }
 
         .icone-perfil svg{
@@ -60,7 +61,7 @@
 
 <body>
     <input class="pesquisa" placeholder="Buscar">
-    <img src="imagens/EcoSanea-removebg-preview.png">
+    <img src="imagens/EcoSanea-removebg-preview.png"> <br><br><br>
     <a href="perfil.html" class="icone-perfil" ><svg xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 448 512"><!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
             <path
@@ -133,3 +134,167 @@
 </body>
 
 </html>
+
+
+
+
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Ubuntu", sans-serif;
+}
+
+body{
+    height: 900vh;
+}
+
+nav.menu-lateral{
+    width: 80px;
+    height: 100%;
+    background-color: black;
+    padding: 40px 0 40px 1%;
+    box-shadow: 3px 0 0 blueviolet;
+
+    position:fixed;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    transition: .2s;
+}
+
+nav.menu-lateral:hover{
+    width: 300px;
+}
+
+.btn-expandir{
+    width: 100%;
+    padding-left: 10px;
+}
+
+.btn-expandir > i{
+    color: aliceblue;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+ul{
+    height: 100%;
+    list-style-type: none;
+}
+
+ul li.item-menu{
+    transition: .2s;
+}
+
+ul li.ativo{
+    background-color: blueviolet;
+}
+
+ul li.item-menu:hover{
+    background-color: blueviolet;
+}
+
+ul li.item-menu a{
+    color: aliceblue;
+    text-decoration: none;
+    font-size: 20px;
+    padding: 20px 4%;
+    display: flex;
+    margin-bottom: 20px;
+    line-height: 30px;
+}
+
+ul li.item-menu a .txt-link{
+    margin-left: 40px;
+
+}
+
+ul li.item-menu a .icon > i{
+    font-size: 30px;
+    margin-left: 10px;
+}
+
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <link rel="stylesheet" href="css/menu.css">
+    <meta charset="UFT-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="Width=device-width, initial-scale=1.0">
+    <title>SideBar</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+</head>
+<body>
+
+        <nav class="menu-lateral">
+
+            <div class="btn-expandir">
+                <i class="bi bi-list" id="btn-exp"></i>
+            </div>
+
+            <ul>
+                <li class="item-menu ativo">
+                    <a href="#">
+                        <span class="icon"><i class="bi bi-house"></i></span> 
+                        <span class="txt-link">Home</span>
+                    </a>
+                </li>
+                <li class="item-menu">
+                    <a href="#">
+                        <span class="icon"><i class="bi bi-columns"></i></span> 
+                        <span class="txt-link">DashBoard</span>
+                    </a>
+                </li>
+                <li class="item-menu">
+                    <a href="#">
+                        <span class="icon"><i class="bi bi-calendar"></i></span> 
+                        <span class="txt-link">Agenda</span>
+                    </a>
+                </li>
+                <li class="item-menu">
+                    <a href="#">
+                        <span class="icon"><i class="bi bi-gear"></i></span> 
+                        <span class="txt-link">Configuração</span>
+                    </a>
+                </li>
+                <li class="item-menu">
+                    <a href="#">
+                        <span class="icon"><i class="bi bi-person"></i></span> 
+                        <span class="txt-link">Conta</span>
+                    </a>
+                </li>
+            </ul>
+
+        </nav>
+
+        <script src="menu.js"></script>
+
+
+</body>
+</html>
+
+var menuitem = document.querySelectorAll('.item-menu')
+
+function selectLink(){
+    menuitem.forEach((item)=>
+        item.classList.remove('ativo')
+    )
+    this.classList.add('ativo')
+}
+
+menuitem.forEach((item)=>
+    item.addEventListener('click', selectLink)
+)
+
+//expandir menu
+
+var btnExp = document.querySelector('#btn-exp')
+var menuSide = document.querySelector('.menu-lateral')
+
+btnExp.addEventListener('click', function(){
+    menuSide.classList.toggle('expandir')
+})
