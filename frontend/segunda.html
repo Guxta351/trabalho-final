@@ -31,33 +31,52 @@
             padding: 1%;
             text-align: center;
             margin: auto;
+            display: flex;
+            flex-direction: column;
             font-size: 20px;
             background-color: rgb(212, 209, 209);
         }
 
         .Elo {
             border-radius: 15px;
-            margin-top: 4%;
         }
+        .botao2{
+            width: 10%;
+            margin-top: 2%;
+        }
+
+        .texto{
+            margin-top: 5%;
+        }
+        input{
+            border-radius: 4px;
+            padding: 4%;
+            -moz-border-radius: 4px;
+            
+         }
+    
+
     </style>
 </head>
 
 <body>
     <div>
-        <h1>Ecosanea</h1>
-        <img src="imagens/EcoSanea-removebg-preview.png">
+        <img style="border: 0cap;" src="imagens/EcoSanea-removebg-preview.png" class="img">
+        <h1 style="margin-left: 3%;">EcoSanea</h1>
     </div>
     <div class="cartao">
-        <p>Cadastre-se</p>
+        <p style="font-size: larger;">Cadastre-se</p>
         <br>
-        <p>Nome</p>
+        <p class="texto">Nome</p>
         <input class="Elo" type="text">
-        <p>Email</p>
+        <p class="texto">Email</p>
         <input class="Elo" type="text">
-        <p>Endereço</p>
+        <p class="texto">Endereço</p>
         <input class="Elo" type="text">
-        <p>senha</p>
+        <p class="texto">senha</p>
         <input class="Elo" type="text">
-        <p>Confirma Senha</p>
+        <p class="texto">Confirma Senha</p>
         <input class="Elo" type="text">
+        <a  href="principal.html"><svg class="botao2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M438.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L338.8 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l306.7 0L233.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z"/></svg></a>
+        
     </div>
