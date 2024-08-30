@@ -1,18 +1,18 @@
-const Usuario = require('../models/Usuario');
+const Usuario = require('../modelo/usuario');
 //const EntradaEstoque = require('../models/EntradaEstoque');
 //const SaidaEstoque = require('../models/SaidaEstoque');
 
-const ProdutoController = {
+const UsuarioController = {
     createUsuario: async (req, res) => {
         try {
-            const novoProduto = await Usuario.create(req.body);
-            res.json(novoProduto);
+            const novoUsuario = await Usuario.create(req.body);
+            res.json(novoUsuario);
         } catch (error) {
             res.status(500).send(error.message);
         }
     },
 
-    getAllUsuario: async (req, res) => {
+    getAllUsuarios: async (req, res) => {
         try {
             const Usuario = await Usuario.findAll();
             res.json(Usuario);
@@ -64,4 +64,4 @@ const ProdutoController = {
     // ... (a ser implementado)
 };
 
-module.exports = usuarioController;
+module.exports = UsuarioController;
