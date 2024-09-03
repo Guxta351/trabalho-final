@@ -15,7 +15,7 @@ Usuario.init({
     Email: {
         type: DataTypes.TEXT
     },
-    Senha_unitario: {
+    Senha: {
         type: DataTypes.TEXT
 
     },

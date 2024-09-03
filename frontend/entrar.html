@@ -11,7 +11,10 @@
             box-sizing: border-box;
             font-family: "Ubuntu", sans-serif;
         }
+        body{
+            background-color: #85c4f8;
 
+        }
         img {
             width: 10%;
             margin-left: 2%;
@@ -19,16 +22,9 @@
         }
 
         .cartao {
-            width: 20%;
-            border: 2px solid black;
-            border-radius: 30px;
-            padding: 3%;
-            text-align: center;
-            margin: auto;
-            display: flex;
-            flex-direction: column;
-            font-size: 20px;
-            background-color: rgb(212, 209, 209);
+           text-align: center;
+           padding: 20%;
+
         }
 
         .elo {
@@ -42,12 +38,13 @@
             
         }
         button{
-            background-color: black;
-            color: white;
+            background-color:white;
+            color:rgb(0, 0, 0);
             padding: 10px 15px;
             text-decoration: none;
             border: none;
-            border-radius: 5px;
+            border-radius:px;
+            
 
         }
         input{
@@ -55,7 +52,23 @@
             padding: 4%;
             -moz-border-radius: 3px;
         }
+
+        .exemplo{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 30%;
+            background-color: lightgreen;
+
+        }
             
+        
+        img{
+                margin-left: 70%;
+                width: 15%;
+                position: absolute;
+            }
 
         
     </style>
@@ -63,7 +76,9 @@
 
 <body>
     <img style="border: 0cap;" src="imagens/EcoSanea-removebg-preview.png" class="img">
-    <h1 style="margin-left: 3%;">EcoSanea</h1>
+    <div class="exemplo">
+        <h1>EcoSanea</h1>
+    </div>
     <div class="cartao">
         <p>Nome/email</p>
         <input class="eloo" type="text">
