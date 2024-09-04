@@ -4,28 +4,28 @@ const sequelize = require('../config/database');
 class Usuario extends Model {}
 
 Usuario.init({
-    id_Usuario: {
+    id_usuario: {
         type: DataTypes.INTEGER,
         primaryKey: true,
         autoIncrement: true
     },
-    Nome_Usuario: {
+    nome_usuario: {
         type: DataTypes.STRING
     },
-    Email: {
+    email: {
         type: DataTypes.TEXT
     },
-    Senha: {
+    senha: {
         type: DataTypes.TEXT
 
     },
-    Endereco: {
+    endereco: {
         type : DataTypes.TEXT
     }
     
 }, {
     sequelize,
-    modelName: 'Usuario',
+    modelName: 'Usuarios',
     timestamps: false
 });
 
