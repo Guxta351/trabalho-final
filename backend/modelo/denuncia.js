@@ -1,31 +1,27 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/database');
 
-class Usuario extends Model {}
+class Denuncia extends Model {}
 
 Usuario.init({
-    id_usuario: {
+    id_denuncia: {
         type: DataTypes.INTEGER,
         primaryKey: true,
         autoIncrement: true
     },
-    nome_usuario: {
-        type: DataTypes.STRING
+    data_criacao: {
+        type: DataTypes.DATE
     },
-    email: {
+    descricao: {
         type: DataTypes.TEXT
     },
-    senha: {
+    localizacao: {
         type: DataTypes.TEXT
-
     },
-    endereco: {
-        type : DataTypes.TEXT
-    }
     
 }, {
     sequelize,
-    modelName: 'Usuarios',
+    modelName: 'Usuario',
     timestamps: false
 });
 
