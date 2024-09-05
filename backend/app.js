@@ -14,9 +14,11 @@ app.use(express.json());
 
 // Importar rotas
 const rotasUsuario = require('./rotas/rotasUsuario');
+const rotasDenuncia = require('./rotas/rotasDenuncia');
 
 // Usar rotas
 app.use('/api', rotasUsuario);
+app.use('/api', rotasDenuncia);
 
 // Iniciar o servidor
 const PORT = process.env.PORT || 3000;
