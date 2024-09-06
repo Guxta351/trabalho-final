@@ -3,7 +3,7 @@ const sequelize = require('../config/database');
 
 class Denuncia extends Model {}
 
-Usuario.init({
+Denuncia.init({
     id_denuncia: {
         type: DataTypes.INTEGER,
         primaryKey: true,
@@ -21,7 +21,7 @@ Usuario.init({
     
 }, {
     sequelize,
-    modelName: 'Denuncia',
+    modelName: 'denuncias',
     timestamps: false
 });
 

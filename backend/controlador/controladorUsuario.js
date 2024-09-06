@@ -28,6 +28,12 @@ const UsuarioController = {
             (dominio.lastIndexOf(".") < dominio.length - 1)) {
                 // Busca pessoa no banco pelo email
                 const usuario = await Usuario.findOne({ where: { email: email } });
+
+            
+                // Verifica se achou usuario
+                if (usuario === undefined){
+                    res.status(400).send('Login ou senha inválida');
+                }
                 // Pega a senha da pessoa no banco
                 const senhaBanco = usuario.senha
                 // Compara com a senha que recebeu

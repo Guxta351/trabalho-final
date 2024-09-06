@@ -11,10 +11,12 @@
             box-sizing: border-box;
             font-family: "Ubuntu", sans-serif;
         }
-        body{
+
+        body {
             background-color: #85c4f8;
 
         }
+
         img {
             margin-left: 70%;
             width: 13%;
@@ -22,51 +24,50 @@
         }
 
         .cartao {
-           text-align: center;
-           padding: 5%;
+            text-align: center;
+            padding: 5%;
 
         }
 
         .elo {
             border-radius: 10px;
-            
+
 
         }
 
         .eloo {
             border-radius: 10px;
-            
+
         }
-        button{
-            background-color:white;
-            color:rgb(0, 0, 0);
+
+        button {
+            background-color: white;
+            color: rgb(0, 0, 0);
             padding: 10px 10px;
             text-decoration: none;
             border: none;
-            border-radius:10px;
-            
+            border-radius: 10px;
+
 
         }
-        input{
+
+        input {
             border-radius: 6%;
             padding: 30px;
             width: 30%;
             height: 3%;
-            
+
         }
 
-        .exemplo{
+        .exemplo {
             display: flex;
             align-items: center;
             justify-content: center;
             width: 100%;
             height: 25%;
-            background-color:#3d67b4;
+            background-color: rgb(82, 165, 31);
 
         }
-            
-
-        
     </style>
 </head>
 
@@ -77,16 +78,49 @@
     </div>
     <div class="cartao">
         <p>Nome/email</p>
-        <input class="eloo" type="text">
+        <input class="eloo" id="email" type="text">
         <br>
         <br>
         <p>Senha</p>
-        <input class="elo" type="text">
+        <input class="elo" id="senha" type="text">
         <br>
         <br>
-        <a class="botao" href="principal.html"><button>Entrar</button><br><br></a>
+        <button id="botao">Entrar</button><br><br>
         <a href="segunda.html"> <button>Cadastre-se</button><br><br></a>
     </div>
+    <script>
+        document.getElementById('botao').addEventListener('click', function (event) {
+            event.preventDefault(); // Evita o envio padrão do formulário
+
+            // Obtém os valores dos campos do formulário
+            const email = document.getElementById('email').value;
+            const senha = document.getElementById('senha').value;
+
+            // Cria o objeto de dados a ser enviado
+            const dados = {
+                email: email,
+                senha: senha
+            };
+
+            // Envia os dados para o back-end usando Fetch API
+            fetch('http://localhost:3000/entrar', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(dados)
+            })
+                .then(response => response.json())
+                .then(data => {
+                    alert('Bem vindo ao Ecosanea');
+                    window.location.href = "principal.html"
+                })
+                .catch(error => {
+                    console.error('Houve um problema com a solicitação:', error.message);
+                    alert('Usuario não existe');
+                });
+        });
+    </script>
 </body>
 
-</html> 
+</html>
