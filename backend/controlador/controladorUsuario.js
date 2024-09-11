@@ -29,7 +29,7 @@ const UsuarioController = {
                 // Busca pessoa no banco pelo email
                 const usuario = await Usuario.findOne({ where: { email: email } });
 
-            
+             
                 // Verifica se achou usuario
                 if (usuario === undefined){
                     res.status(400).send('Login ou senha inválida');
