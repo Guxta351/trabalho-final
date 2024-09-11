@@ -79,9 +79,11 @@
 
         .posts h2 {
             font-size: 22px;
-            border-bottom: 2px solid #ddd;
-            padding-bottom: 10px;
-            margin-bottom: 20px;
+        }
+
+        .posts hr {
+            border: 1px solid #ddd;
+            margin: 20px 0;
         }
 
         .post {
@@ -110,12 +112,20 @@
             color: red;
         }
 
+        .like {
+            margin-left: 95%;
+
+        }
+
         .like:hover {
-            background-color: #fff;
+            background-color: transparent;
             color: red;
             transition: 2.s;
         }
-        
+
+        .h2Flex {
+            display: flex;
+        }
     </style>
 </head>
 
@@ -139,7 +149,11 @@
             <p>Olá! Sou João, Gosto de programar, viajar e explorar novos lugares.</p>
         </div>
         <div class="posts">
-            <h2 style="color: #85c4f8;">EcoSanea</h2>
+            <div class="h2Flex">
+                <h2 style="color: #58af9b;">Eco</h2>
+                <h2 style="color: #85c4f8;">Sanea</h2>
+            </div>
+            <hr>
             <h3>Denuncias</h3>
 
             <div class="post">
