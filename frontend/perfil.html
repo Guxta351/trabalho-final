@@ -5,7 +5,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Perfil EcoSanea</title>
-    <link rel="stylesheet" href="styles.css">
 
     <style>
         /* styles.css */
@@ -70,6 +69,7 @@
 
         .bio {
             margin: 20px 0;
+            display: flex;
         }
 
         .bio p {
@@ -125,6 +125,12 @@
 
         .h2Flex {
             display: flex;
+            margin-left: 38%;
+        }
+        .voltar{
+            height: 10%;
+            width: 5%;
+            color: black;
         }
     </style>
 </head>
@@ -134,25 +140,34 @@
 
 
     <div class="container">
+            <a href="principal.html"><svg class="voltar" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16">
+                <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8"/>
+              </svg></a>
         <div class="profile-header">
             <img src="imagens/EcoSanea-removebg-preview.png" class="profile-picture">
-            <h1 class="name">João Silva</h1>
-            <p class="location">Santa Catarina, Brasil</p>
+
+            <div class="h2Flex">
+                <h1 style="color: #58af9b;">Eco</h1>
+                <h1 style="color: #85c4f8;">Sanea</h1>
+                <svg style="color: #85c4f8;" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-stars" viewBox="0 0 16 16">
+                    <path d="M7.657 6.247c.11-.33.576-.33.686 0l.645 1.937a2.89 2.89 0 0 0 1.829 1.828l1.936.645c.33.11.33.576 0 .686l-1.937.645a2.89 2.89 0 0 0-1.828 1.829l-.645 1.936a.361.361 0 0 1-.686 0l-.645-1.937a2.89 2.89 0 0 0-1.828-1.828l-1.937-.645a.361.361 0 0 1 0-.686l1.937-.645a2.89 2.89 0 0 0 1.828-1.828zM3.794 1.148a.217.217 0 0 1 .412 0l.387 1.162c.173.518.579.924 1.097 1.097l1.162.387a.217.217 0 0 1 0 .412l-1.162.387A1.73 1.73 0 0 0 4.593 5.69l-.387 1.162a.217.217 0 0 1-.412 0L3.407 5.69A1.73 1.73 0 0 0 2.31 4.593l-1.162-.387a.217.217 0 0 1 0-.412l1.162-.387A1.73 1.73 0 0 0 3.407 2.31zM10.863.099a.145.145 0 0 1 .274 0l.258.774c.115.346.386.617.732.732l.774.258a.145.145 0 0 1 0 .274l-.774.258a1.16 1.16 0 0 0-.732.732l-.258.774a.145.145 0 0 1-.274 0l-.258-.774a1.16 1.16 0 0 0-.732-.732L9.1 2.137a.145.145 0 0 1 0-.274l.774-.258c.346-.115.617-.386.732-.732z"/>
+                  </svg>
+            </div>
+
         </div>
         <div class="bio">
-            <svg class="neta" xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 512 512"><!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
-                <path
-                    d="M362.7 19.3L314.3 67.7 444.3 197.7l48.4-48.4c25-25 25-65.5 0-90.5L453.3 19.3c-25-25-65.5-25-90.5 0zm-71 71L58.6 323.5c-10.4 10.4-18 23.3-22.2 37.4L1 481.2C-1.5 489.7 .8 498.8 7 505s15.3 8.5 23.7 6.1l120.3-35.4c14.1-4.2 27-11.8 37.4-22.2L421.7 220.3 291.7 90.3z" />
+            <svg class="neta" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+                <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0"/>
+                <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1"/>
             </svg>
-            <h2>Descrição</h2>
-            <p>Olá! Sou João, Gosto de programar, viajar e explorar novos lugares.</p>
+
+            <h2></h2>
+           
         </div>
         <div class="posts">
-            <div class="h2Flex">
-                <h2 style="color: #58af9b;">Eco</h2>
-                <h2 style="color: #85c4f8;">Sanea</h2>
-            </div>
+            <h1 class="name">João Silva</h1>
+            <p class="location">Santa Catarina, Brasil</p>
+            <p>Olá! Sou João, Gosto de programar, viajar e explorar novos lugares.</p>
             <hr>
             <h3>Denuncias</h3>
 
@@ -204,12 +219,33 @@
             </div>
 
             <script>
-                const elementos = document.querySelectorAll('like');
+                const elementos = document.getElementsByClassName('like');
                 for (i = 0; i < elementos.length; i++) {
-                    elementos[i].addEventListener('click', () => {
-                        elementos[i].className.toggle('liked');
+                    const elemento = elementos.item(i)
+                    elemento.addEventListener('click', () => {
+                        elemento.classList.toggle('liked')
                     })
                 }
+                
+                // testes
+                let likes = 0;
+
+                function curtir() {
+                    likes++; // Incrementa o valor de likes
+                    console.log('Likes: ' + likes);
+                }
+
+                function descurtir() {
+                    if (likes > 0) { // Garante que os likes não fiquem negativos
+                        likes--;
+                    }
+                    console.log('Likes: ' + likes);
+                }
+
+                // Testar as funções
+                curtir(); // Likes: 1
+                curtir(); // Likes: 2
+                descurtir(); // Likes: 1
 
 
             </script>

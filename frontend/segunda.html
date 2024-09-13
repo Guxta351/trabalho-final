@@ -42,7 +42,7 @@
         }
 
         .botao2 {
-            width: 15%;
+            width: 10%;
             margin-top: 1%;
         }
 
@@ -78,18 +78,67 @@
         </div>
         <div class="cartao">
             <p class="texto">Cadastre-se</p>
-            <input class="eloo" id="Nome" placeholder="Nome">
-            <input class="eloo" id="Endereço" placeholder="Endereco">
-            <input class="eloo" id="Email" placeholder="Email">
-            <input class="eloo" id="Senha" placeholder="Senha">
-            <input class="eloo" id="Confirma Senha" placeholder="Confirma Senha">
+            <input class="eloo" id="nome" placeholder="Nome">
+            <input class="eloo" id="endereco" placeholder="Endereco">
+            <input class="eloo" id="email" placeholder="Email">
+            <input class="eloo" id="senha" placeholder="Senha">
+            <input class="eloo" id="confirmarsenha" placeholder="Confirma Senha">
 
             <br>
-            <a href="principal.html"><svg class="botao2" xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 448 512"><!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
-                    <path
-                        d="M438.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L338.8 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l306.7 0L233.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z" />
-                </svg></a>
+            <svg class="botao2" id="botao2" xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 448 512"><!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+                <path
+                    d="M438.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L338.8 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l306.7 0L233.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z" />
+            </svg>
 
         </div>
-        
+
+        <script>
+            document.getElementById('botao2').addEventListener('click', function (event) {
+                event.preventDefault(); // Evita o envio padrão do formulário
+
+                // Obtém os valores dos campos do formulário
+                const nome = document.getElementById('nome').value;
+                const email = document.getElementById('email').value;
+                const endereco = document.getElementById('endereco').value;
+                const senha = document.getElementById('senha').value;
+                const confirmarsenha = document.getElementById('confirmarsenha').value;
+
+
+                // Cria o objeto de dados a ser enviado
+                const dados = {
+                    nome: nome,
+                    email: email,
+                    endereco: endereco,
+                    senha: senha,
+                    confirmarsenha: confirmarsenha
+
+                };
+
+                // Envia os dados para o back-end usando Fetch API
+                if (senha === confirmarsenha) {
+                    fetch('http://localhost:3000/entrar', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify(dados)
+                    })
+                        .then(response => response.json())
+                        .then(data => {
+                            alert('Bem vindo ao Ecosanea');
+                            window.location.href = "entrar.html"
+                        })
+                        .catch(error => {
+                            console.error('Houve um problema com a solicitação:', error.message);
+                            alert('Senha não confere');
+                        })
+                } else {
+                    alert('senha erradas')
+                }
+            }
+            );
+        </script>
+</body>
+
+</html>
