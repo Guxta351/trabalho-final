@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Barra de Mensagens</title>
+    <style>
+        #message-bar {
+            width: 300px;
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin: 10px auto;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+
+        #messages {
+            height: 150px;
+            overflow-y: auto;
+            margin-bottom: 10px;
+        }
+
+        .message {
+            margin: 5px 0;
+            padding: 5px;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+        }
+
+        #message-form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        #message-form textarea {
+            margin-bottom: 10px;
+            padding: 5px;
+        }
+
+        #message-form button {
+            align-self: flex-end;
+            padding: 5px 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="message-bar">
+        <div id="messages"></div>
+        <form id="message-form">
+            <textarea id="message-input" rows="3" placeholder="Digite sua mensagem..."></textarea>
+            <button type="submit">Enviar</button>
+        </form>
+    </div>
+
+    <script> 
+        document.addEventListener('DOMContentLoaded', () => {
+            // Exemplo de função para carregar mensagens ao inicializar
+            async function loadMessages() {
+                try {
+                    const response = await fetch('/api/messages');
+                    const messages = await response.json();
+                    messages.forEach(msg => addMessage(msg.content));
+                } catch (error) {
+                    console.error('Erro ao carregar mensagens:', error);
+                }
+            }
+
+            loadMessages(); // Carrega mensagens iniciais
+        });
+    </script>
+</body>
+
+</html>

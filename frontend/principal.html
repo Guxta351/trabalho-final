@@ -140,7 +140,6 @@
             width: 10%;
         }
     </style>
-    <link rel="stylesheet" href="css/menu.css">
     <meta charset="UFT-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="Width=device-width, initial-scale=1.0">
@@ -199,7 +198,7 @@
 
     <div class="pesquisa">
         <input class="pesquisa-input" id="pesquisa-input" placeholder="Qual sua Denuncia">
-        <svg xmlns="http://www.w3.org/2000/svg" id="lupa" width="16" height="16" fill="currentColor" class="bi bi-arrow-up-short" viewBox="0 0 16 16">
+        <svg xmlns="http://www.w3.org/2000/svg" id="lupa" width="32" height="32" fill="currentColor" class="bi bi-arrow-up-short" viewBox="0 0 16 16">
             <path fill-rule="evenodd" d="M8 12a.5.5 0 0 0 .5-.5V5.707l2.146 2.147a.5.5 0 0 0 .708-.708l-3-3a.5.5 0 0 0-.708 0l-3 3a.5.5 0 1 0 .708.708L7.5 5.707V11.5a.5.5 0 0 0 .5.5"/>
           </svg>
     </div>
@@ -246,7 +245,9 @@
 
     </script>
 
-    <script>document.getElementById('lupa').addEventListener('click', function (event) {
+    <script>
+    
+    document.getElementById('lupa').addEventListener('click', function (event) {
             event.preventDefault(); // Evita o envio padrão do formulário
 
             // Obtém os valores dos campos do formulário
@@ -265,16 +266,10 @@
                 },
                 body: JSON.stringify(dados)
             })
-                .then(response => {
-                    if (response.ok) {
-                        return response.json();
-                    } else {
-                        throw new Error('Erro na rede.');
-                    }
-                })
+                .then(response => response.json())
                 .then(data => {
+                    document.getElementById('pesquisa-input').value = ''; // Reseta o formulário
                     alert('Denúncia enviada com sucesso!');
-                    document.getElementById('denunciaForm').reset(); // Reseta o formulário
                 })
                 .catch(error => {
                     console.error('Houve um problema com a solicitação:', error);
@@ -282,6 +277,7 @@
                 });
         });
     </script>
-</body>
+                  
+    </body>
 
-</html>
+</html>0

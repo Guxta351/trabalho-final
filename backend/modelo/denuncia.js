@@ -4,7 +4,7 @@ const sequelize = require('../config/database');
 class Denuncia extends Model {}
 
 Denuncia.init({
-    id_denuncia: {
+    id: {
         type: DataTypes.INTEGER,
         primaryKey: true,
         autoIncrement: true
