@@ -9,6 +9,9 @@ Denuncia.init({
         primaryKey: true,
         autoIncrement: true
     },
+    autor:{
+        type: DataTypes.INTEGER
+    },
     data_criacao: {
         type: DataTypes.DATE
     },
