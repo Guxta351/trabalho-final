@@ -76,7 +76,11 @@ const UsuarioController = {
             if (!usuario) {
                 return res.status(404).send('Usuario não encontrado');
             }
-            await Usuario.update(req.body);
+            usuario = {
+                ...usuario,
+                email: req.body.email
+            }
+            await usuario.save();
             res.send('Usuario atualizado com sucesso');
         } catch (error) {
             res.status(500).send(error.message);
