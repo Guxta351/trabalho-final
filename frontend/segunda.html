@@ -128,12 +128,9 @@
                         .then(data => {
                             alert('Bem vindo ao Ecosanea');
                             window.location.href = "entrar.html"
-                        })
-                        .catch(error => {
-                            console.error('Houve um problema com a solicitação:', error.message);
-                            alert('Senha não confere');
-                        })
-                } else {
+                }
+            
+        } else {
                     alert('senha erradas')
                 }
             }
