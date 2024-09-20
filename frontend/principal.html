@@ -128,7 +128,7 @@
             margin-top: 0%;
         }
 
-        .likes {
+        .coracao1 {
             margin-left: 95%;
             margin-top: 1px;
         }
@@ -219,11 +219,13 @@
     <div class="cartao">
         <p class="descrição"></p>
         <div class="rodape">
-            <svg class="Likes" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+            <div id="coracao" class="coracao1">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                 class="bi bi-suit-heart-fill" viewBox="0 0 16 16">
                 <path
                     d="M4 1c2.21 0 4 1.755 4 3.92C8 2.755 9.79 1 12 1s4 1.755 4 3.92c0 3.263-3.234 4.414-7.608 9.608a.513.513 0 0 1-.784 0C3.234 9.334 0 8.183 0 4.92 0 2.755 1.79 1 4 1" />
             </svg>
+            </div>
             <div>
                 <p id="mensagem"></p>
             </div>
@@ -260,7 +262,7 @@
             // Cria o objeto de dados a ser enviado
             const dados = {
                 descricao: descricao,
-             autor: usuario,    
+           
             };
 
             // Envia os dados para o back-end usando Fetch API
@@ -283,34 +285,20 @@
         });
     </script>
     <script>
-        const elementos = document.getElementsByClassName('like');
-        for (i = 0; i < elementos.length; i++) {
-            const elemento = elementos.item(i)
-            elemento.addEventListener('click', () => {
-                elemento.classList.toggle('likes')
-            })
-        }
+           var apertado = false;
 
-        // testes
-        let like = 0;
+document.getElementById("coracao").addEventListener('click', function() {
 
-        function curtir() {
-            like++; // Incrementa o valor de likes
-            console.log('Likes: ' + likes);
-        }
+    if(apertado == false){
+        document.getElementById('coracao').style.color = 'red'
+        apertado = true
 
-        function descurtir() {
-            if (like > 0) { // Garante que os likes não fiquem negativos
-                like--;
-            }
-            console.log('Like: ' + likes);
-        }
+    } else {
+        document.getElementById('coracao').style.color = 'black'
+        apertado = false;
 
-        // Testar as funções
-        curtir(); // Likes: 1
-        curtir(); // Likes: 2
-        descurtir(); // Likes: 1
-
+    }
+});
 
     </script>
 
