@@ -96,11 +96,12 @@
 
         }
 
-        .pesquisa-input{
+        .pesquisa-input {
             width: 520px;
             border: none;
             outline: none;
         }
+
         .cartao {
             width: 20%;
             border: 2px solid black;
@@ -127,9 +128,9 @@
             margin-top: 0%;
         }
 
-        .like {
+        .likes {
             margin-left: 95%;
-            margin-top: 1px ;
+            margin-top: 1px;
         }
 
         .icone-perfil {
@@ -139,6 +140,12 @@
 
         .icone-perfil svg {
             width: 10%;
+        }
+
+        .likes:hover {
+            background-color: transparent;
+            color: red;
+            transition: 2.s;
         }
     </style>
     <meta charset="UFT-8">
@@ -199,23 +206,24 @@
 
     <div class="pesquisa">
         <input class="pesquisa-input" id="pesquisa-input" placeholder="Qual sua Denuncia">
-        <svg xmlns="http://www.w3.org/2000/svg" id="lupa" width="32" height="32" fill="currentColor" class="bi bi-arrow-up-short" viewBox="0 0 16 16">
-            <path fill-rule="evenodd" d="M8 12a.5.5 0 0 0 .5-.5V5.707l2.146 2.147a.5.5 0 0 0 .708-.708l-3-3a.5.5 0 0 0-.708 0l-3 3a.5.5 0 1 0 .708.708L7.5 5.707V11.5a.5.5 0 0 0 .5.5"/>
-          </svg>
+        <svg xmlns="http://www.w3.org/2000/svg" id="lupa" width="32" height="32" fill="currentColor"
+            class="bi bi-arrow-up-short" viewBox="0 0 16 16">
+            <path fill-rule="evenodd"
+                d="M8 12a.5.5 0 0 0 .5-.5V5.707l2.146 2.147a.5.5 0 0 0 .708-.708l-3-3a.5.5 0 0 0-.708 0l-3 3a.5.5 0 1 0 .708.708L7.5 5.707V11.5a.5.5 0 0 0 .5.5" />
+        </svg>
     </div>
     <img src="imagens/EcoSanea-removebg-preview.png">
     </div>
     <br>
-
     <br><br>
     <div class="cartao">
         <p class="descrição"></p>
         <div class="rodape">
-            <svg class="like" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-            class="bi bi-suit-heart-fill" viewBox="0 0 16 16">
-            <path
-                d="M4 1c2.21 0 4 1.755 4 3.92C8 2.755 9.79 1 12 1s4 1.755 4 3.92c0 3.263-3.234 4.414-7.608 9.608a.513.513 0 0 1-.784 0C3.234 9.334 0 8.183 0 4.92 0 2.755 1.79 1 4 1" />
-        </svg>
+            <svg class="Likes" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                class="bi bi-suit-heart-fill" viewBox="0 0 16 16">
+                <path
+                    d="M4 1c2.21 0 4 1.755 4 3.92C8 2.755 9.79 1 12 1s4 1.755 4 3.92c0 3.263-3.234 4.414-7.608 9.608a.513.513 0 0 1-.784 0C3.234 9.334 0 8.183 0 4.92 0 2.755 1.79 1 4 1" />
+            </svg>
             <div>
                 <p id="mensagem"></p>
             </div>
@@ -242,8 +250,8 @@
     </script>
 
     <script>
-    
-    document.getElementById('lupa').addEventListener('click', function (event) {
+
+        document.getElementById('lupa').addEventListener('click', function (event) {
             event.preventDefault(); // Evita o envio padrão do formulário
 
             // Obtém os valores dos campos do formulário
@@ -255,7 +263,7 @@
             };
 
             // Envia os dados para o back-end usando Fetch API
-            fetch('http://localhost:3000/denuncia', {   
+            fetch('http://localhost:3000/denuncia', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -273,7 +281,38 @@
                 });
         });
     </script>
-                  
-    </body>
+    <script>
+        const elementos = document.getElementsByClassName('like');
+        for (i = 0; i < elementos.length; i++) {
+            const elemento = elementos.item(i)
+            elemento.addEventListener('click', () => {
+                elemento.classList.toggle('likes')
+            })
+        }
+
+        // testes
+        let like = 0;
+
+        function curtir() {
+            like++; // Incrementa o valor de likes
+            console.log('Likes: ' + likes);
+        }
+
+        function descurtir() {
+            if (like > 0) { // Garante que os likes não fiquem negativos
+                like--;
+            }
+            console.log('Like: ' + likes);
+        }
+
+        // Testar as funções
+        curtir(); // Likes: 1
+        curtir(); // Likes: 2
+        descurtir(); // Likes: 1
+
+
+    </script>
+
+</body>
 
 </html>
