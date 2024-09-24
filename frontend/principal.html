@@ -266,11 +266,12 @@
             };
 
             // Envia os dados para o back-end usando Fetch API
-            fetch('http://localhost:3000/denuncia', {
+            fetch('http://localhost:3000/denuncia',{
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
                 },
+                 
                 body: JSON.stringify(dados)
             })
                 .then(response => response.json())
