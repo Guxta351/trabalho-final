@@ -1,4 +1,4 @@
-<html></html>
+<html>
 
 <head>
     <meta charset="UFT-8">
@@ -128,7 +128,7 @@
             margin-top: 0%;
         }
 
-        .coracao1{
+        .coracao1 {
             margin-left: 95%;
             margin-top: 1px;
         }
@@ -141,8 +141,8 @@
         .icone-perfil svg {
             width: 10%;
         }
-
-        .coracao:hover{
+        
+        .coracao:hover {
             background-color: transparent;
             color: red;
             transition: 2.s;
@@ -219,10 +219,13 @@
     <div class="cartao">
         <p class="descrição"></p>
         <div class="rodape">
-            <div id="coracao" class="coracao1"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart-fill" viewBox="0 0 16 16">
-                <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314"/>
-              </svg>
-        </div>
+            <div id="coracao" class="coracao1">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                class="bi bi-suit-heart-fill" viewBox="0 0 16 16">
+                <path
+                    d="M4 1c2.21 0 4 1.755 4 3.92C8 2.755 9.79 1 12 1s4 1.755 4 3.92c0 3.263-3.234 4.414-7.608 9.608a.513.513 0 0 1-.784 0C3.234 9.334 0 8.183 0 4.92 0 2.755 1.79 1 4 1" />
+            </svg>
+            </div>
             <div>
                 <p id="mensagem"></p>
             </div>
@@ -258,15 +261,17 @@
 
             // Cria o objeto de dados a ser enviado
             const dados = {
-                descricao: descricao
+                descricao: descricao,
+           
             };
 
             // Envia os dados para o back-end usando Fetch API
-            fetch('http://localhost:3000/denuncia', {
+            fetch('http://localhost:3000/denuncia',{
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
                 },
+                 
                 body: JSON.stringify(dados)
             })
                 .then(response => response.json())
@@ -280,7 +285,7 @@
                 });
         });
     </script>
-     <script>
+    <script>
            var apertado = false;
 
 document.getElementById("coracao").addEventListener('click', function() {
@@ -297,7 +302,130 @@ document.getElementById("coracao").addEventListener('click', function() {
 });
 
     </script>
-       
+<script>document.getElementById('enviar-comentario').addEventListener('click', function () {
+    const comentario = document.getElementById('comentario-input').value;
+
+    fetch('http://localhost:3000/denuncia', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ content: comentario })
+    })
+    .then(response => response.json())
+    .then(data => {
+        alert(data.message);
+        document.getElementById('comentario-input').value = ''; // Reset input
+        loadComments();
+    })
+    .catch(error => {
+        console.error('Error:', error);
+        alert('Falha ao enviar o comentário.');
+    });
+});
+
+function loadComments() {
+    fetch('http://localhost:3000/denuncia')
+        .then(response => response.json())
+        .then(data => {
+            const listaComentarios = document.getElementById('lista-comentarios');
+            listaComentarios.innerHTML = '';
+            data.forEach(comment => {
+                const div = document.createElement('div');
+                div.classList.add('comentario');
+                div.textContent = comment.content;
+                listaComentarios.appendChild(div);
+            });
+        });
+}
+
+// Load comments on page load
+window.onload = loadComments;
+</script>
 </body>
 
 </html>
+cssssss
+.comentarios {
+    margin: 20px auto;
+    width: 50%;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+#comentario-input {
+    width: 100%;
+    height: 100px;
+    margin-bottom: 10px;
+}
+
+#enviar-comentario {
+    background-color: #85c4f8;
+    border: none;
+    color: white;
+    padding: 10px 15px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+#lista-comentarios {
+    margin-top: 15px;
+}
+
+.comentario {
+    padding: 10px;
+    border: 1px solid #ddd;
+    margin-top: 10px;
+    border-radius: 5px;
+}
+//sadas
+
+
+
+<html></html>
+<div class="comentarios">
+    <h2>Comentários</h2>
+    <textarea id="comentario-input" placeholder="Escreva seu comentário aqui..."></textarea>
+    <button id="enviar-comentario">Enviar Comentário</button>
+    <div id="lista-comentarios"></div>
+</div>
+
+
+
+javascript
+const express = require('express');
+const bodyParser = require('body-parser');
+const cors = require('cors');
+
+const app = express();
+const PORT = 3000;
+
+// Middleware
+app.use(cors());
+app.use(bodyParser.json());
+
+// In-memory comments storage
+let comments = [];
+
+// Route to handle comments
+app.post('/comments', (req, res) => {
+    const { content } = req.body;
+    if (content) {
+        comments.push({ content });
+        res.status(201).json({ message: 'Comment added successfully' });
+    } else {
+        res.status(400).json({ message: 'Comment content is required' });
+    }
+});
+
+// Route to get all comments
+app.get('/comments', (req, res) => {
+    res.json(comments);
+});
+
+app.listen(PORT, () => {
+    console.log(`Server is running on http://localhost:${PORT}`);
+});
+
