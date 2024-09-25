@@ -1,75 +1,431 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
+<html>
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Barra de Mensagens</title>
+    <meta charset="UFT-8">
+    <title>www.Ecosanea.com.br</title>
     <style>
-        #message-bar {
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Ubuntu", sans-serif;
+        }
+
+        body {
+            background-color: #85c4f8;
+        }
+
+        nav.menu-lateral {
+            width: 80px;
+            height: 100%;
+            background-color: rgb(255, 255, 255);
+            padding: 40px 0 40px 1%;
+            box-shadow: 3px 0 0 rgb(137, 203, 247);
+
+            position: fixed;
+            top: 0;
+            left: 0;
+            overflow: hidden;
+            transition: .2s;
+        }
+
+        nav.menu-lateral:hover {
             width: 300px;
-            border: 1px solid #ccc;
-            padding: 10px;
-            margin: 10px auto;
-            border-radius: 5px;
-            background-color: #f9f9f9;
         }
 
-        #messages {
-            height: 150px;
-            overflow-y: auto;
-            margin-bottom: 10px;
+        .btn-expandir {
+            width: 100%;
+            padding-left: 10px;
         }
 
-        .message {
-            margin: 5px 0;
-            padding: 5px;
-            border: 1px solid #ddd;
-            border-radius: 3px;
+        .btn-expandir>i {
+            color: rgb(128, 197, 243);
+            font-size: 24px;
+            cursor: pointer;
         }
 
-        #message-form {
+        ul {
+            height: 100%;
+            list-style-type: none;
+        }
+
+        ul li.item-menu {
+            transition: .2s;
+        }
+
+        ul li.item-menu:hover {
+            background-color: rgb(109, 199, 226);
+        }
+
+        ul li.item-menu a {
+            color: rgb(12, 12, 12);
+            text-decoration: none;
+            font-size: 20px;
+            padding: 20px 4%;
             display: flex;
-            flex-direction: column;
+            margin-bottom: 20px;
+            line-height: 30px;
         }
 
-        #message-form textarea {
-            margin-bottom: 10px;
-            padding: 5px;
+        ul li.item-menu a .txt-link {
+            margin-left: 40px;
+
         }
 
-        #message-form button {
-            align-self: flex-end;
-            padding: 5px 10px;
+        ul li.item-menu a .icon>i {
+            font-size: 30px;
+            margin-left: 10px;
+        }
+
+        img {
+            width: 8%;
+            margin-left: 90%;
+        }
+
+        .pesquisa {
+            background-color: rgb(252, 252, 252);
+            border-radius: 15px;
+            margin-top: 2%;
+            margin-left: 34%;
+            position: absolute;
+            width: 30%;
+            height: 3%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+        }
+
+        .pesquisa-input {
+            width: 520px;
+            border: none;
+            outline: none;
+        }
+
+        .cartao {
+            width: 20%;
+            border: 2px solid black;
+            border-radius: 15px;
+            padding: 1%;
+            margin-left: 38%;
+            background-color: rgb(255, 255, 255);
+        }
+
+        .rodape {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .lista {
+            display: flex;
+            justify-content: flex-start;
+            flex-wrap: wrap;
+        }
+
+        .Denuncia {
+            margin-left: 23%;
+            margin-top: 0%;
+        }
+
+        .coracao1 {
+            margin-left: 95%;
+            margin-top: 1px;
+        }
+
+        .icone-perfil {
+            margin-top: 50%;
+            margin-left: 2%;
+        }
+
+        .icone-perfil svg {
+            width: 10%;
+        }
+        
+        .coracao:hover {
+            background-color: transparent;
+            color: red;
+            transition: 2.s;
         }
     </style>
+    <meta charset="UFT-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="Width=device-width, initial-scale=1.0">
+    <title>SideBar</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 </head>
 
 <body>
-    <div id="message-bar">
-        <div id="messages"></div>
-        <form id="message-form">
-            <textarea id="message-input" rows="3" placeholder="Digite sua mensagem..."></textarea>
-            <button type="submit">Enviar</button>
-        </form>
+    <nav class="menu-lateral">
+
+        <div class="btn-expandir">
+            <i class="bi bi-list" id="btn-exp"></i>
+        </div>
+
+        <ul>
+            <li class="item-menu">
+                <a href="perfil.html">
+                    <span class="icon"><i class="bi bi-calendar"></i></span>
+                    <span class="txt-link">Conta</span>
+                </a>
+            </li>
+            <li class="item-menu">
+                <a href="entrar.html">
+                    <span class="icon"><i class="bi bi-person"></i></span>
+                    <span class="txt-link">login</span></a>
+                </a>
+            </li>
+        </ul>
+
+    </nav>
+
+    <script>
+        var menuitem = document.querySelectorAll('.item-menu')
+
+        function selectLink() {
+            menuitem.forEach((item) =>
+                item.classList.remove('ativo')
+            )
+            this.classList.add('ativo')
+        }
+
+        menuitem.forEach((item) =>
+            item.addEventListener('click', selectLink)
+        )
+
+        //expandir menu
+
+        var btnExp = document.querySelector('#btn-exp')
+        var menuSide = document.querySelector('.menu-lateral')
+
+        btnExp.addEventListener('click', function () {
+            menuSide.classList.toggle('expandir')
+        })
+    </script>
+
+    <div class="pesquisa">
+        <input class="pesquisa-input" id="pesquisa-input" placeholder="Qual sua Denuncia">
+        <svg xmlns="http://www.w3.org/2000/svg" id="lupa" width="32" height="32" fill="currentColor"
+            class="bi bi-arrow-up-short" viewBox="0 0 16 16">
+            <path fill-rule="evenodd"
+                d="M8 12a.5.5 0 0 0 .5-.5V5.707l2.146 2.147a.5.5 0 0 0 .708-.708l-3-3a.5.5 0 0 0-.708 0l-3 3a.5.5 0 1 0 .708.708L7.5 5.707V11.5a.5.5 0 0 0 .5.5" />
+        </svg>
     </div>
+    <img src="imagens/EcoSanea-removebg-preview.png">
+    </div>
+    <br>
+    <br><br>
+    <div class="cartao">
+        <p class="descrição"></p>
+        <div class="rodape">
+            <div id="coracao" class="coracao1">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                class="bi bi-suit-heart-fill" viewBox="0 0 16 16">
+                <path
+                    d="M4 1c2.21 0 4 1.755 4 3.92C8 2.755 9.79 1 12 1s4 1.755 4 3.92c0 3.263-3.234 4.414-7.608 9.608a.513.513 0 0 1-.784 0C3.234 9.334 0 8.183 0 4.92 0 2.755 1.79 1 4 1" />
+            </svg>
+            </div>
+            <div>
+                <p id="mensagem"></p>
+            </div>
+        </div>
+    </div>
+    <br><br>
+    <script>
+        function salvarDenuncia() {
+            let nome = document.getElementById('pergunta').valeu
+            localStorage.setItem('denucia', pergunta)
+            exibirMsg('Denuncia feita com sucesso')
+        }
 
-    <script> 
-        document.addEventListener('DOMContentLoaded', () => {
-            // Exemplo de função para carregar mensagens ao inicializar
-            async function loadMessages() {
-                try {
-                    const response = await fetch('/api/messages');
-                    const messages = await response.json();
-                    messages.forEach(msg => addMessage(msg.content));
-                } catch (error) {
-                    console.error('Erro ao carregar mensagens:', error);
-                }
-            }
+        function exibirMsg(mensagem) {
+            let pMsg = document.getElementById('mensagem')
+            pMsg.textContent = mensagem
+        }
 
-            loadMessages(); // Carrega mensagens iniciais
+        function salvarLike() {
+            let nome = document.getElementById('Like').valeu
+            localStorage.setItem('Like', pergunta)
+        }
+
+    </script>
+
+    <script>
+
+        document.getElementById('lupa').addEventListener('click', function (event) {
+            event.preventDefault(); // Evita o envio padrão do formulário
+
+            // Obtém os valores dos campos do formulário
+            const descricao = document.getElementById('pesquisa-input').value;
+
+            // Cria o objeto de dados a ser enviado
+            const dados = {
+                descricao: descricao,
+           
+            };
+
+            // Envia os dados para o back-end usando Fetch API
+            fetch('http://localhost:3000/denuncia',{
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                 
+                body: JSON.stringify(dados)
+            })
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('pesquisa-input').value = ''; // Reseta o formulário
+                    alert('Denúncia enviada com sucesso!');
+                })
+                .catch(error => {
+                    console.error('Houve um problema com a solicitação:', error);
+                    alert('Falha ao enviar denúncia.');
+                });
         });
     </script>
+    <script>
+           var apertado = false;
+
+document.getElementById("coracao").addEventListener('click', function() {
+
+    if(apertado == false){
+        document.getElementById('coracao').style.color = 'red'
+        apertado = true
+
+    } else {
+        document.getElementById('coracao').style.color = 'black'
+        apertado = false;
+
+    }
+});
+
+    </script>
+<script>document.getElementById('enviar-comentario').addEventListener('click', function () {
+    const comentario = document.getElementById('comentario-input').value;
+
+    fetch('http://localhost:3000/denuncia', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ content: comentario })
+    })
+    .then(response => response.json())
+    .then(data => {
+        alert(data.message);
+        document.getElementById('comentario-input').value = ''; // Reset input
+        loadComments();
+    })
+    .catch(error => {
+        console.error('Error:', error);
+        alert('Falha ao enviar o comentário.');
+    });
+});
+
+function loadComments() {
+    fetch('http://localhost:3000/denuncia')
+        .then(response => response.json())
+        .then(data => {
+            const listaComentarios = document.getElementById('lista-comentarios');
+            listaComentarios.innerHTML = '';
+            data.forEach(comment => {
+                const div = document.createElement('div');
+                div.classList.add('comentario');
+                div.textContent = comment.content;
+                listaComentarios.appendChild(div);
+            });
+        });
+}
+
+// Load comments on page load
+window.onload = loadComments;
+</script>
 </body>
 
 </html>
+cssssss
+.comentarios {
+    margin: 20px auto;
+    width: 50%;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+#comentario-input {
+    width: 100%;
+    height: 100px;
+    margin-bottom: 10px;
+}
+
+#enviar-comentario {
+    background-color: #85c4f8;
+    border: none;
+    color: white;
+    padding: 10px 15px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+#lista-comentarios {
+    margin-top: 15px;
+}
+
+.comentario {
+    padding: 10px;
+    border: 1px solid #ddd;
+    margin-top: 10px;
+    border-radius: 5px;
+}
+//sadas
+
+
+
+<html></html>
+<div class="comentarios">
+    <h2>Comentários</h2>
+    <textarea id="comentario-input" placeholder="Escreva seu comentário aqui..."></textarea>
+    <button id="enviar-comentario">Enviar Comentário</button>
+    <div id="lista-comentarios"></div>
+</div>
+
+
+
+javascript
+const express = require('express');
+const bodyParser = require('body-parser');
+const cors = require('cors');
+
+const app = express();
+const PORT = 3000;
+
+// Middleware
+app.use(cors());
+app.use(bodyParser.json());
+
+// In-memory comments storage
+let comments = [];
+
+// Route to handle comments
+app.post('/comments', (req, res) => {
+    const { content } = req.body;
+    if (content) {
+        comments.push({ content });
+        res.status(201).json({ message: 'Comment added successfully' });
+    } else {
+        res.status(400).json({ message: 'Comment content is required' });
+    }
+});
+
+// Route to get all comments
+app.get('/comments', (req, res) => {
+    res.json(comments);
+});
+
+app.listen(PORT, () => {
+    console.log(`Server is running on http://localhost:${PORT}`);
+});
+
