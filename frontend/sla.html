@@ -281,28 +281,20 @@
         });
     </script>
      <script>
-                const elementos = document.getElementsByClassName('coracao1');
-                for (i = 0; i < elementos.length; i++) {
-                    const elemento = elementos.item(i)
-                    elemento.addEventListener('click', () => {
-                        elemento.classList.toggle('coracao')
-                    })
-                }
-                
-                // testes
-                let likes = 0;
+           var apertado = false;
 
-                function curtir() {
-                    likes++; // Incrementa o valor de likes
-                    console.log('Likes: ' + likes);
-                }
+document.getElementById("coracao").addEventListener('click', function() {
 
-                function descurtir() {
-                    if (likes > 0) { // Garante que os likes não fiquem negativos
-                        likes--;
-                    }
-                    console.log('Likes: ' + likes);
-                }
+    if(apertado == false){
+        document.getElementById('coracao').style.color = 'red'
+        apertado = true
+
+    } else {
+        document.getElementById('coracao').style.color = 'black'
+        apertado = false;
+
+    }
+});
 
     </script>
        
