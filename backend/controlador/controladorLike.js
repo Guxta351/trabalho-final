@@ -15,10 +15,26 @@ const LikeController = {
         }
     },
 
-    getAllLike: async (req, res) => {
+    getAllLikes: async (req, res) => {
         try {
             const denuncia = await Like.findAll();
             res.json(denuncia);
+        } catch (error) {
+            res.status(500).send(error.message);
+        }
+    },
+
+    getQuantosLikesByDenuncia: async (denuncia) => {
+        try {
+            const likes = await Like.findAll({
+                where: {
+                    denuncia: denuncia
+                }
+            });
+            if (!likes) {
+                return 0;
+            }
+            res.json(likes.length);
         } catch (error) {
             res.status(500).send(error.message);
         }
