@@ -69,6 +69,10 @@
             font-size: 16px;
             text-align: center;
         }
+        .locations {
+            color: #888;
+            font-size: 16px;
+        }
 
         .bio {
             margin: 20px 0;
@@ -140,6 +144,27 @@
             align-items: center;
             margin-top: 2%;
         }
+
+        .img_container{
+            border: 2px solid transparent;
+            width: 25%;
+            height: 140px;
+            margin: auto;
+
+            img{
+                height: 100%;
+                width: 100%;
+                border-radius: 150px;
+            }
+        }
+        .post1{
+            width: 575px;
+            background: #f3f1f1;
+            padding: 20px 25px;
+            border-radius: 5px;
+            margin: 15px;
+            box-shadow:  0 0 10px rgba(0, 0, 0, 0.3);
+        }
     </style>
 </head>
 
@@ -166,12 +191,9 @@
 
         </div>
         <div class="bio">
-            <svg class="neta" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                class="bi bi-person-circle" viewBox="0 0 16 16">
-                <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0" />
-                <path fill-rule="evenodd"
-                    d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1" />
-            </svg>
+            <div class="img_container">
+                <img src="imagens/close-up-confident-male-employee-white-collar-shirt-smiling-camera-standing-self-assured-against-studio-background.jpg" alt="João Silva">
+            </div>
 
             <h2></h2>
 
@@ -181,10 +203,11 @@
             <p class="location">Santa Catarina, Brasil</p>
             <p class="location">Olá! Sou João, Gosto de programar, viajar e explorar novos lugares.</p>
             <hr>
-            <h3 style>Denuncias</h3>
+            <h3 class="location">Denuncias</h3>
 
-            <div class="post">
-                <h3>Bairro garcia rua ascurra</h3>
+            <div class="post1">
+                <h1 class="locations">João Silva</h1>
+                <h2 class="locations">Bairro garcia rua ascurra</h2>
                 <p>A distribuição de água potável é irregular e muitas vezes insuficiente. Há moradores que enfrentam
                     longos períodos sem acesso a água tratada, o que força o uso de fontes não seguras, colocando a
                     saúde da população em risco.
@@ -202,35 +225,45 @@
                 </div>
 
             </div>
-            <div class="post">
-                <h3>Bairro garcia Rua amazonas</h3>
+            <div class="post1">
+                <h1 class="locations">João Silva</h1>
+                <h2 class="locations">Bairro garcia Rua amazonas</h2>
                 <p>Há meses, o serviço de coleta de lixo na Comunidade X está ineficiente. Os resíduos acumulam-se nas
                     ruas, criando focos de doenças e atraindo vetores como ratos e insetos. Essa situação não só
                     prejudica a saúde pública, mas também compromete a qualidade de vida dos residentes.!
 
                 </p>
 
-                <svg class="like" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                    class="bi bi-suit-heart-fill" viewBox="0 0 16 16">
-                    <path
-                        d="M4 1c2.21 0 4 1.755 4 3.92C8 2.755 9.79 1 12 1s4 1.755 4 3.92c0 3.263-3.234 4.414-7.608 9.608a.513.513 0 0 1-.784 0C3.234 9.334 0 8.183 0 4.92 0 2.755 1.79 1 4 1" />
-                </svg>
+                <div class="likes">
+                    <!-- Elemento para exibir os likes -->
+                    <p><b>Likes: </b><span id="contador-likes">0</span></p>
+                    <svg class="like" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                        class="bi bi-suit-heart-fill" viewBox="0 0 16 16">
+                        <path
+                            d="M4 1c2.21 0 4 1.755 4 3.92C8 2.755 9.79 1 12 1s4 1.755 4 3.92c0 3.263-3.234 4.414-7.608 9.608a.513.513 0 0 1-.784 0C3.234 9.334 0 8.183 0 4.92 0 2.755 1.79 1 4 1" />
+                    </svg>
+                </div>
 
             </div>
 
-            <div class="post">
-                <h3>Bairro garcia Rua amazonas</h3>
+            <div class="post1">
+                <h1 class="locations">João Silva</h1>
+                <h2 class="locations">Bairro garcia Rua amazonas</h2>
                 <p>Não há cobertura adequada para os sistemas de drenagem, o que leva ao alagamento das ruas durante as
                     chuvas. Esses alagamentos não só causam danos às propriedades, mas também agravam o risco de doenças
                     transmitidas pela água.
 
                 </p>
 
-                <svg class="like" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                    class="bi bi-suit-heart-fill" viewBox="0 0 16 16">
-                    <path
-                        d="M4 1c2.21 0 4 1.755 4 3.92C8 2.755 9.79 1 12 1s4 1.755 4 3.92c0 3.263-3.234 4.414-7.608 9.608a.513.513 0 0 1-.784 0C3.234 9.334 0 8.183 0 4.92 0 2.755 1.79 1 4 1" />
-                </svg>
+                <div class="likes">
+                    <!-- Elemento para exibir os likes -->
+                    <p><b>Likes: </b><span id="contador-likes">0</span></p>
+                    <svg class="like" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                        class="bi bi-suit-heart-fill" viewBox="0 0 16 16">
+                        <path
+                            d="M4 1c2.21 0 4 1.755 4 3.92C8 2.755 9.79 1 12 1s4 1.755 4 3.92c0 3.263-3.234 4.414-7.608 9.608a.513.513 0 0 1-.784 0C3.234 9.334 0 8.183 0 4.92 0 2.755 1.79 1 4 1" />
+                    </svg>
+                </div>
 
             </div>
 

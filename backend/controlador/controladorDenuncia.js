@@ -1,4 +1,5 @@
 const Denuncia = require('../modelo/denuncia');
+const Like = require('../modelo/like');
 const ControladorLikes = require('../controlador/controladorLike');
 //const EntradaEstoque = require('../models/EntradaEstoque');
 //const SaidaEstoque = require('../models/SaidaEstoque');
@@ -21,24 +22,14 @@ const DenunciaController = {
             const denuncias = await Denuncia.findAll();
             // Faça um FOR que passe de denuncia em denuncia, pegue quantos likes ela tem, e coloque nela
             // Dica: pode copiar das linhas 36 e 37
-            getAllDenuncias: async (req, res) => {
-                try {
-                    const denuncias = await Denuncia.findAll();
-                    for (let denuncia of denuncias) {
-                        const likesCount = await DenunciaLikes.count({
-                            where: {
-                                denunciaId: denuncia.id, 
-                            },
-                        });
-                        denuncia.dataValues.likes = likesCount; 
-                    }
-                    res.json(denuncias);
-                } catch (error) {
-                    res.status(500).send(error.message);
-                }
-            },
-            
-
+            for (let denuncia of denuncias) {
+                const likesCount = await Like.count({
+                    where: {
+                        denunciaId: denuncia.id,
+                    },
+                });
+                denuncia.likes = likesCount;
+            }
             res.json(denuncias);
         } catch (error) {
             res.status(500).send(error.message);
@@ -59,31 +50,31 @@ const DenunciaController = {
         }
     },
 
-    updateDenuncia: async (req, res) => {
-        try {
-            const denuncia = await Denuncia.findByPk(req.params.id);
-            if (!denuncia) {
-                return res.status(404).send('Denuncia não encontrado');
+        updateDenuncia: async (req, res) => {
+            try {
+                const denuncia = await Denuncia.findByPk(req.params.id);
+                if (!denuncia) {
+                    return res.status(404).send('Denuncia não encontrado');
+                }
+                await Denuncia.update(req.body);
+                res.send('Denuncia atualizado com sucesso');
+            } catch (error) {
+                res.status(500).send(error.message);
             }
-            await Denuncia.update(req.body);
-            res.send('Denuncia atualizado com sucesso');
-        } catch (error) {
-            res.status(500).send(error.message);
-        }
-    },
+        },
 
-    deleteDenuncia: async (req, res) => {
-        try {
-            const denuncia = await Denuncia.findByPk(req.params.id);
-            if (!denuncia) {
-                return res.status(404).send('Denuncia não encontrado');
-            }
-            await Denuncia.destroy();
-            res.send('Denuncia deletado com sucesso');
-        } catch (error) {
-            res.status(500).send(error.message);
-        }
-    },
+            deleteDenuncia: async (req, res) => {
+                try {
+                    const denuncia = await Denuncia.findByPk(req.params.id);
+                    if (!denuncia) {
+                        return res.status(404).send('Denuncia não encontrado');
+                    }
+                    await Denuncia.destroy();
+                    res.send('Denuncia deletado com sucesso');
+                } catch (error) {
+                    res.status(500).send(error.message);
+                }
+            },
 
     // Implementação das funções de controle de estoque
     // registrarEntrada e registrarSaida
