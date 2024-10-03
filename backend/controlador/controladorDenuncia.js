@@ -8,7 +8,6 @@ const DenunciaController = {
     createDenuncia: async (req, res) => {
         try {
             let denuncia = req.body
-            denuncia.localizacao = "casa0"
             denuncia.data_criacao = Date.now();
             const novoDenuncia = await Denuncia.create(denuncia);
             res.json(novoDenuncia);

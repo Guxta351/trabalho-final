@@ -252,17 +252,20 @@
     </script>
 
     <script>
-
         document.getElementById('lupa').addEventListener('click', function (event) {
             event.preventDefault(); // Evita o envio padrão do formulário
 
             // Obtém os valores dos campos do formulário
             const descricao = document.getElementById('pesquisa-input').value;
 
+            // Obtém da memória o autor da denuncia
+            const autor = JSON.parse(localStorage.getItem('usuario'))
+
             // Cria o objeto de dados a ser enviado
             const dados = {
                 descricao: descricao,
-           
+                autor: autor.id_usuario,
+                localizacao: autor.endereco
             };
 
             // Envia os dados para o back-end usando Fetch API
