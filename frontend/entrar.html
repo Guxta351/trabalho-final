@@ -112,7 +112,7 @@
                 .then(response => response.json())
                 .then(data => {
                     // Adiciona no local storage
-                    localStorage.setItem("usuario", data)
+                    localStorage.setItem("usuario", JSON.stringify(data))
                     alert('Bem vindo ao Ecosanea');
                     window.location.href = "principal.html"
                 })
