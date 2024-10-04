@@ -141,7 +141,7 @@
         .icone-perfil svg {
             width: 10%;
         }
-        
+
         .coracao:hover {
             background-color: transparent;
             color: red;
@@ -216,15 +216,15 @@
     </div>
     <br>
     <br><br>
-    <div class="cartao">
+    <div class="cartaodenuncia">
         <p class="descrição"></p>
         <div class="rodape">
             <div id="coracao" class="coracao1">
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                class="bi bi-suit-heart-fill" viewBox="0 0 16 16">
-                <path
-                    d="M4 1c2.21 0 4 1.755 4 3.92C8 2.755 9.79 1 12 1s4 1.755 4 3.92c0 3.263-3.234 4.414-7.608 9.608a.513.513 0 0 1-.784 0C3.234 9.334 0 8.183 0 4.92 0 2.755 1.79 1 4 1" />
-            </svg>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                    class="bi bi-suit-heart-fill" viewBox="0 0 16 16">
+                    <path
+                        d="M4 1c2.21 0 4 1.755 4 3.92C8 2.755 9.79 1 12 1s4 1.755 4 3.92c0 3.263-3.234 4.414-7.608 9.608a.513.513 0 0 1-.784 0C3.234 9.334 0 8.183 0 4.92 0 2.755 1.79 1 4 1" />
+                </svg>
             </div>
             <div>
                 <p id="mensagem"></p>
@@ -269,12 +269,12 @@
             };
 
             // Envia os dados para o back-end usando Fetch API
-            fetch('http://localhost:3000/denuncia',{
+            fetch('http://localhost:3000/denuncia', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
                 },
-                 
+
                 body: JSON.stringify(dados)
             })
                 .then(response => response.json())
@@ -289,20 +289,34 @@
         });
     </script>
     <script>
-           var apertado = false;
+        fetch('http://localhost:3000/denuncia')
+            .then(resposta => resposta.json())
+            .then(listaDenunciasBackend => {
+                const listaDenunciasFront = document.getElementById('lista-denuncias')
+                for(i=0; i<denucias.length; i++){
+                    const denucia = denucia[i]
+                    const cartadenuncia = document.createElement('div');
+                    cartaoDenucia.className = 'cartao';
 
-document.getElementById("coracao").addEventListener('click', function() {
+                    cartaoDenucia.innerHTML
+                }
+            })
+    </script>
+    <script>
+        var apertado = false;
 
-    if(apertado == false){
-        document.getElementById('coracao').style.color = 'red'
-        apertado = true
+        document.getElementById("coracao").addEventListener('click', function () {
 
-    } else {
-        document.getElementById('coracao').style.color = 'black'
-        apertado = false;
+            if (apertado == false) {
+                document.getElementById('coracao').style.color = 'red'
+                apertado = true
 
-    }
-});
+            } else {
+                document.getElementById('coracao').style.color = 'black'
+                apertado = false;
+
+            }
+        });
 
     </script>
 
