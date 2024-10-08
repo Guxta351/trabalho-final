@@ -103,18 +103,20 @@
         }
 
         .cartao {
-            width: 20%;
+            width: 40%;
             border: 2px solid black;
             border-radius: 15px;
-            padding: 1%;
-            margin-left: 38%;
+            padding: 3%;
+            margin-left: 30%;
             background-color: rgb(255, 255, 255);
+            margin-bottom: 20px;
         }
 
         .rodape {
             display: flex;
             justify-content: space-between;
             align-items: center;
+        
         }
 
         .lista {
@@ -216,21 +218,10 @@
     </div>
     <br>
     <br><br>
-    <div class="cartaodenuncia">
-        <p class="descrição"></p>
-        <div class="rodape">
-            <div id="coracao" class="coracao1">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                    class="bi bi-suit-heart-fill" viewBox="0 0 16 16">
-                    <path
-                        d="M4 1c2.21 0 4 1.755 4 3.92C8 2.755 9.79 1 12 1s4 1.755 4 3.92c0 3.263-3.234 4.414-7.608 9.608a.513.513 0 0 1-.784 0C3.234 9.334 0 8.183 0 4.92 0 2.755 1.79 1 4 1" />
-                </svg>
-            </div>
-            <div>
-                <p id="mensagem"></p>
-            </div>
-        </div>
+    <div class="lista-denuncias" id="lista-denuncias">
+        
     </div>
+    
     <br><br>
     <script>
         function salvarDenuncia() {
@@ -293,19 +284,35 @@
             .then(resposta => resposta.json())
             .then(listaDenunciasBackend => {
                 const listaDenunciasFront = document.getElementById('lista-denuncias')
-                for(i=0; i<denucias.length; i++){
-                    const denucia = denucia[i]
-                    const cartadenuncia = document.createElement('div');
-                    cartaoDenucia.className = 'cartao';
+                for(i=0; i<listaDenunciasBackend.length; i++){
+                    const denuncia = listaDenunciasBackend[i]
+                    const cartaoDenuncia = document.createElement('div');
+                    cartaoDenuncia.className = 'cartao';
 
-                    cartaoDenucia.innerHTML
+                    cartaoDenuncia.innerHTML=`
+                        <p class="descrição">${denuncia.descricao}</p>
+                        <div class="rodape">
+                            <div id="coracao" class="coracao1" onclick="clickCoracao()">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                    class="bi bi-suit-heart-fill" viewBox="0 0 16 16">
+                                    <path
+                                        d="M4 1c2.21 0 4 1.755 4 3.92C8 2.755 9.79 1 12 1s4 1.755 4 3.92c0 3.263-3.234 4.414-7.608 9.608a.513.513 0 0 1-.784 0C3.234 9.334 0 8.183 0 4.92 0 2.755 1.79 1 4 1" />
+                                </svg>
+                            </div>
+                            <div>
+                                <p id="mensagem">${denuncia.localizacao}</p>
+                            </div>
+                        </div>
+                    `
+
+                    listaDenunciasFront.appendChild(cartaoDenuncia)
                 }
             })
     </script>
     <script>
         var apertado = false;
 
-        document.getElementById("coracao").addEventListener('click', function () {
+        function clickCoracao(){
 
             if (apertado == false) {
                 document.getElementById('coracao').style.color = 'red'
@@ -316,7 +323,7 @@
                 apertado = false;
 
             }
-        });
+        }
 
     </script>
 
