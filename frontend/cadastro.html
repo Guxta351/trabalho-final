@@ -107,17 +107,16 @@
 
                 // Cria o objeto de dados a ser enviado
                 const dados = {
-                    nome: nome,
+                    nome_usuario: nome,
                     email: email,
                     endereco: endereco,
                     senha: senha,
-                    confirmarsenha: confirmarsenha
 
                 };
 
                 // Envia os dados para o back-end usando Fetch API
-                if (senha === confirmarsenha) {
-                    fetch('http://localhost:3000/entrar', {
+                if (senha === confirmarsenha){
+                    fetch('http://localhost:3000/usuarios', {
                         method: 'POST',
                         headers: {
                             'Content-Type': 'application/json'
@@ -128,12 +127,11 @@
                         .then(data => {
                             alert('Bem vindo ao Ecosanea');
                             window.location.href = "entrar.html"
+                        })
+                } else {
+                    alert('Senhas não correspondem')
                 }
-            
-        } else {
-                    alert('senha erradas')
-                }
-            }
+            })
         </script>
       
 </body>
