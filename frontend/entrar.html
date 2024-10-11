@@ -85,7 +85,7 @@
         <br>
         <br>
         <button id="botao">Entrar</button><br><br>
-        <a href="cadastro.html"> <button>Cadastre-se</button><br><br></a>
+        <a href= "cadastro.html"> <button>Cadastre-se</button><br><br></a>
     </div>
     <script>
         document.getElementById('botao').addEventListener('click', function (event) {
@@ -112,17 +112,17 @@
                 .then(response => response.json())
                 .then(data => {
                     // Adiciona no local storage
-                    localStorage.setItem("usuario", JSON.stringify(data))
+                    localStorage.setItem("usuario", data)
                     alert('Bem vindo ao Ecosanea');
                     window.location.href = "principal.html"
                 })
                 .catch(error => {
                     console.error('Houve um problema com a solicitação:a', error.message);
+                    
                     alert('Usuario não existe');
                 });
         });
     </script>
-
 </body>
 
 </html>
