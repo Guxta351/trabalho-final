@@ -24,7 +24,7 @@ const DenunciaController = {
             for (let denuncia of denuncias) {
                 const likesCount = await Like.count({
                     where: {
-                        denunciaId: denuncia.id,
+                        denuncia: denuncia.id,
                     },
                 });
                 denuncia.likes = likesCount;
