@@ -5,116 +5,148 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Perfil EcoSanea</title>
-    <link rel="shortcut icon"
-        href="imagens/4995402-gota-d-agua-com-meia-folha-e-onda-d-agua-gratis-vetor-removebg-preview.png">
-
+    <link rel="shortcut icon" href="4995402-gota-d-agua-com-meia-folha-e-onda-d-agua-gratis-vetor-removebg-preview.png">
+    
+    <!-- Estilos modernizados -->
     <style>
-        /* styles.css */
-
-        @import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap');
 
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: "Ubuntu", sans-serif;
+            font-family: 'Ubuntu', sans-serif;
         }
 
         body {
-            font-family: Arial, sans-serif;
             background-color: #85c4f8;
-            margin: 0;
-            padding: 0;
-        }
-
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
-            background-color: #fff;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-
-            height: 200;
-            border: 15px solid black;
-            border-radius: 20px;
-            margin: auto;
-            width: 40%;
-            background-color: #fff;
-            padding: 1.6%;
-            margin-top: 1%;
-
-        }
-
-        .profile-header {
-            text-align: center;
-            padding-bottom: 20px;
-            border-bottom: 2px solid #ddd;
-        }
-
-        .profile-picture {
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
-            object-fit: cover;
-        }
-
-        .name {
-            margin: 10px 0 5px;
-            font-size: 24px;
-        }
-
-        .location {
-            color: #888;
-            font-size: 16px;
-            text-align: center;
-        }
-        .locations {
-            color: #000;
-            font-size: 16px;
-        }
-
-        .bio {
-            margin: 20px 0;
-            display: flex;
-        }
-
-        .bio p {
-            font-size: 18px;
+            color: #333;
             line-height: 1.6;
         }
 
-        .posts h2 {
+        /* Container principal */
+        .container {
+            max-width: 900px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Header de perfil */
+        .profile-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .profile-header img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            margin-bottom: 10px;
+        }
+
+        .profile-header h1 {
+            font-size: 28px;
+            color: #58af9b;
+            display: inline-block;
+            text-align: center;
+        }
+
+        .profile-header h1:last-child {
+            color: #85c4f8;
+        }
+
+        .profile-header svg {
+            margin-left: 10px;
+            fill: #85c4f8;
+        }
+
+        /* Informações pessoais */
+        .bio {
+            display: flex;
+            align-items: center;
+            margin-bottom: 40px;
+            gap: 20px;
+        }
+
+        .img_container {
+            flex: 1;
+        }
+
+        .img_container img {
+            width: 100%;
+            max-width: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .bio-info {
+            flex: 2;
+        }
+
+        .bio-info p {
+            font-size: 18px;
+            color: #555;
+        }
+
+        .bio-info h2 {
             font-size: 22px;
+            margin-bottom: 10px;
         }
 
-        .posts hr {
-            border: 1px solid #ddd;
-            margin: 20px 0;
+        /* Denúncias */
+            .post-header {
+            display: flex;
+            align-items: center;
+        }
+        .post-img {
+            margin-right: 10px;
+        }
+        .small-img {
+            width: 40px; /* Ajuste o tamanho da imagem */
+            height: 40px; /* Mantém a proporção */
+            border-radius: 50%; /* Para imagem circular */
         }
 
-        .post {
+        .posts h3 {
+            font-size: 24px;
             margin-bottom: 20px;
-            padding: 2%;
-            border: 5px solid black;
-            border-radius: 20px;
+            color: #58af9b;
+            border-bottom: 2px solid #ddd;
+            padding-bottom: 10px;
         }
 
-        .post h3 {
+        .post1 {
+            background: #f9f9f9;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        .post1 h1 {
             font-size: 20px;
-            margin: 0 0 10px;
+            margin-bottom: 5px;
+            color: #333;
         }
 
-        .post p {
+        .post1 h2 {
+            font-size: 18px;
+            margin-bottom: 15px;
+            color: #777;
+        }
+
+        .post1 p {
             font-size: 16px;
-            line-height: 1.5;
+            margin-bottom: 15px;
+            color: #555;
+            line-height: 1.6;
         }
 
-        .neta {
-            height: 8%;
-            width: 5%;
-            margin-left: 48%;
-        }
+        /* Likes */
 
         .liked {
             color: red;
@@ -125,45 +157,35 @@
             color: red;
             transition: 2.s;
         }
-
-        .h2Flex {
+        
+        .likes {
             display: flex;
-            margin-left: 38%;
-        }
-
-        .voltar {
-            height: 10%;
-            width: 5%;
-            color: black;
-        }
-
-        .likes{
-            display: flex;
-            width: 100%;
             justify-content: space-between;
             align-items: center;
-            margin-top: 2%;
         }
 
-        .img_container{
-            border: 2px solid transparent;
-            width: 25%;
-            height: 140px;
-            margin: auto;
+        /* Botão voltar */
+        .voltar {
+            color: #333;
+            width: 30px;
+            margin-bottom: 20px;
+            cursor: pointer;
+        }
 
-            img{
-                height: 100%;
-                width: 100%;
-                border-radius: 150px;
+        /* Responsividade */
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
             }
-        }
-        .post1{
-            width: 575px;
-            background: #f3f1f1;
-            padding: 20px 25px;
-            border-radius: 5px;
-            margin: 15px;
-            box-shadow:  0 0 10px rgba(0, 0, 0, 0.3);
+
+            .bio {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .img_container {
+                margin-bottom: 20px;
+            }
         }
     </style>
 </head>
@@ -171,140 +193,176 @@
 <body>
 
     <div class="container">
-        <a href="principal.html"><svg class="voltar" xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16">
+        <!-- Ícone voltar -->
+        <a href="principal.html">
+            <svg class="voltar" xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
+                viewBox="0 0 16 16">
                 <path fill-rule="evenodd"
                     d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8" />
-            </svg></a>
-        <div class="profile-header">
-            <img src="imagens/EcoSanea-removebg-preview.png" class="profile-picture">
+            </svg>
+        </a>
 
-            <div class="h2Flex">
-                <h1 style="color: #58af9b;">Eco</h1>
-                <h1 style="color: #85c4f8;">Sanea</h1>
-                <svg style="color: #85c4f8;" xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                    fill="currentColor" class="bi bi-stars" viewBox="0 0 16 16">
-                    <path
-                        d="M7.657 6.247c.11-.33.576-.33.686 0l.645 1.937a2.89 2.89 0 0 0 1.829 1.828l1.936.645c.33.11.33.576 0 .686l-1.937.645a2.89 2.89 0 0 0-1.828 1.829l-.645 1.936a.361.361 0 0 1-.686 0l-.645-1.937a2.89 2.89 0 0 0-1.828-1.828l-1.937-.645a.361.361 0 0 1 0-.686l1.937-.645a2.89 2.89 0 0 0 1.828-1.828zM3.794 1.148a.217.217 0 0 1 .412 0l.387 1.162c.173.518.579.924 1.097 1.097l1.162.387a.217.217 0 0 1 0 .412l-1.162.387A1.73 1.73 0 0 0 4.593 5.69l-.387 1.162a.217.217 0 0 1-.412 0L3.407 5.69A1.73 1.73 0 0 0 2.31 4.593l-1.162-.387a.217.217 0 0 1 0-.412l1.162-.387A1.73 1.73 0 0 0 3.407 2.31zM10.863.099a.145.145 0 0 1 .274 0l.258.774c.115.346.386.617.732.732l.774.258a.145.145 0 0 1 0 .274l-.774.258a1.16 1.16 0 0 0-.732.732l-.258.774a.145.145 0 0 1-.274 0l-.258-.774a1.16 1.16 0 0 0-.732-.732L9.1 2.137a.145.145 0 0 1 0-.274l.774-.258c.346-.115.617-.386.732-.732z" />
-                </svg>
+        <!-- Header do perfil -->
+        <div class="profile-header">
+            <img src="imagens/EcoSanea-removebg-preview.png" class="profile-picture" alt="EcoSanea">
+            <div class="h2flex">
+            <h1>Eco</h1>
+            <h1>Sanea</h1>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-stars"
+                viewBox="0 0 16 16">
+                <path
+                    d="M7.657 6.247c.11-.33.576-.33.686 0l.645 1.937a2.89 2.89 0 0 0 1.829 1.828l1.936.645c.33.11.33.576 0 .686l-1.937.645a2.89 2.89 0 0 0-1.828 1.829l-.645 1.936a.361.361 0 0 1-.686 0l-.645-1.937a2.89 2.89 0 0 0-1.828-1.828l-1.937-.645a.361.361 0 0 1 0-.686l1.937-.645a2.89 2.89 0 0 0 1.828-1.828zM3.794 1.148a.217.217 0 0 1 .412 0l.387 1.162c.173.518.579.924 1.097 1.097l1.162.387a.217.217 0 0 1 0 .412l-1.162.387A1.73 1.73 0 0 0 4.593 5.69l-.387 1.162a.217.217 0 0 1-.412 0L3.407 5.69A1.73 1.73 0 0 0 2.31 4.593l-1.162-.387a.217.217 0 0 1 0-.412l1.162-.387A1.73 1.73 0 0 0 3.407 2.31zM10.863.099a.145.145 0 0 1 .274 0l.258.774c.115.346.386.617.732.732l.774.258a.145.145 0 0 1 0 .274l-.774.258a1.16 1.16 0 0 0-.732.732l-.258.774a.145.145 0 0 1-.274 0l-.258-.774a1.16 1.16 0 0 0-.732-.732L9.1 2.137a.145.145 0 0 1 0-.274l.774-.258c.346-.115.617-.386.732-.732z" />
+            </svg>
             </div>
 
         </div>
+
+        <!-- Informações pessoais -->
         <div class="bio">
             <div class="img_container">
                 <img src="imagens/close-up-confident-male-employee-white-collar-shirt-smiling-camera-standing-self-assured-against-studio-background.jpg" alt="João Silva">
             </div>
-
-            <h2></h2>
-
+            <div class="bio-info">
+                <h2>João Silva</h2>
+                <p>Santa Catarina, Brasil</p>
+                <p>Olá! Sou João, gosto de programar, viajar e explorar novos lugares.</p>
+            </div>
         </div>
-        <div class="posts">
-            <h1 class="location">João Silva</h1>
-            <p class="location">Santa Catarina, Brasil</p>
-            <p class="location">Olá! Sou João, Gosto de programar, viajar e explorar novos lugares.</p>
-            <hr>
-            <h3 class="location">Denuncias</h3>
 
-            <div class="post1">
-                <h1 class="locations">João Silva</h1>
-                <h2 class="locations">Bairro garcia rua ascurra</h2>
-                <p>A distribuição de água potável é irregular e muitas vezes insuficiente. Há moradores que enfrentam
-                    longos períodos sem acesso a água tratada, o que força o uso de fontes não seguras, colocando a
-                    saúde da população em risco.
+     <!-- Denúncias -->
+<div class="posts">
+    <h3>Denúncias</h3>
 
-                </p>
-
-                <div class="likes">
-                    <!-- Elemento para exibir os likes -->
-                    <p><b>Likes: </b><span id="contador-likes">0</span></p>
-                    <svg class="like" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                        class="bi bi-suit-heart-fill" viewBox="0 0 16 16">
-                        <path
-                            d="M4 1c2.21 0 4 1.755 4 3.92C8 2.755 9.79 1 12 1s4 1.755 4 3.92c0 3.263-3.234 4.414-7.608 9.608a.513.513 0 0 1-.784 0C3.234 9.334 0 8.183 0 4.92 0 2.755 1.79 1 4 1" />
-                    </svg>
-                </div>
-
+    <!-- Postagem 1 -->
+    <div class="post1">
+        <div class="post-header">
+            <div class="post-img">
+                <img src="imagens/close-up-confident-male-employee-white-collar-shirt-smiling-camera-standing-self-assured-against-studio-background.jpg" alt="João Silva" class="small-img">
             </div>
-            <div class="post1">
-                <h1 class="locations">João Silva</h1>
-                <h2 class="locations">Bairro garcia Rua amazonas</h2>
-                <p>Há meses, o serviço de coleta de lixo na Comunidade X está ineficiente. Os resíduos acumulam-se nas
-                    ruas, criando focos de doenças e atraindo vetores como ratos e insetos. Essa situação não só
-                    prejudica a saúde pública, mas também compromete a qualidade de vida dos residentes.!
+            <h1>João Silva</h1>
+        </div>
+        <h2>Bairro Garcia, Rua Ascurra</h2>
+        <p>A distribuição de água potável é irregular e muitas vezes insuficiente. Há moradores que enfrentam longos períodos sem acesso a água tratada, o que força o uso de fontes não seguras, colocando a saúde da população em risco.</p>
+        <div class="likes">
+            <p><b>Likes: </b><span id="contador-likes">0</span></p>
+            <svg class="like" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-suit-heart-fill" viewBox="0 0 16 16">
+                <path d="M4 1c2.21 0 4 1.755 4 3.92C8 2.755 9.79 1 12 1s4 1.755 4 3.92c0 3.263-3.234 4.414-7.608 9.608a.513.513 0 0 1-.784 0C3.234 9.334 0 8.183 0 4.92 0 2.755 1.79 1 4 1" />
+            </svg>
+        </div>
+    </div>
 
-                </p>
-
-                <div class="likes">
-                    <!-- Elemento para exibir os likes -->
-                    <p><b>Likes: </b><span id="contador-likes">0</span></p>
-                    <svg class="like" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                        class="bi bi-suit-heart-fill" viewBox="0 0 16 16">
-                        <path
-                            d="M4 1c2.21 0 4 1.755 4 3.92C8 2.755 9.79 1 12 1s4 1.755 4 3.92c0 3.263-3.234 4.414-7.608 9.608a.513.513 0 0 1-.784 0C3.234 9.334 0 8.183 0 4.92 0 2.755 1.79 1 4 1" />
-                    </svg>
-                </div>
-
+    <!-- Postagem 2 -->
+    <div class="post1">
+        <div class="post-header">
+            <div class="post-img">
+                <img src="imagens/close-up-confident-male-employee-white-collar-shirt-smiling-camera-standing-self-assured-against-studio-background.jpg" alt="João Silva" class="small-img">
             </div>
+            <h1>João Silva</h1>
+        </div>
+        <h2>Bairro Garcia, Rua Ascurra</h2>
+        <p>A distribuição de água potável é irregular e muitas vezes insuficiente. Há moradores que enfrentam longos períodos sem acesso a água tratada, o que força o uso de fontes não seguras, colocando a saúde da população em risco.</p>
+        <div class="likes">
+            <p><b>Likes: </b><span id="contador-likes">0</span></p>
+            <svg class="like" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-suit-heart-fill" viewBox="0 0 16 16">
+                <path d="M4 1c2.21 0 4 1.755 4 3.92C8 2.755 9.79 1 12 1s4 1.755 4 3.92c0 3.263-3.234 4.414-7.608 9.608a.513.513 0 0 1-.784 0C3.234 9.334 0 8.183 0 4.92 0 2.755 1.79 1 4 1" />
+            </svg>
+        </div>
+    </div>
 
-           <div class="post1">
-                <h1 class="locations">João Silva</h1>
-                <h2 class="locations">Bairro garcia Rua amazonas</h2>
-                <p>Não há cobertura adequada para os sistemas de drenagem, o que leva ao alagamento das ruas durante as
-                    chuvas. Esses alagamentos não só causam danos às propriedades, mas também agravam o risco de doenças
-                    transmitidas pela água.
-
-                </p>
-
-                <div class="likes">
-                    <!-- Elemento para exibir os likes -->
-                    <p><b>Likes: </b><span id="contador-likes">0</span></p>
-                    <svg class="like" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                        class="bi bi-suit-heart-fill" viewBox="0 0 16 16">
-                        <path
-                            d="M4 1c2.21 0 4 1.755 4 3.92C8 2.755 9.79 1 12 1s4 1.755 4 3.92c0 3.263-3.234 4.414-7.608 9.608a.513.513 0 0 1-.784 0C3.234 9.334 0 8.183 0 4.92 0 2.755 1.79 1 4 1" />
-                    </svg>
-                </div>
-
+    <!-- Postagem 3 -->
+    <div class="post1">
+        <div class="post-header">
+            <div class="post-img">
+                <img src="imagens/close-up-confident-male-employee-white-collar-shirt-smiling-camera-standing-self-assured-against-studio-background.jpg" alt="João Silva" class="small-img">
             </div>
+            <h1>João Silva</h1>
+        </div>
+        <h2>Bairro Garcia, Rua Ascurra</h2>
+        <p>A distribuição de água potável é irregular e muitas vezes insuficiente. Há moradores que enfrentam longos períodos sem acesso a água tratada, o que força o uso de fontes não seguras, colocando a saúde da população em risco.</p>
+        <div class="likes">
+            <p><b>Likes: </b><span id="contador-likes">0</span></p>
+            <svg class="like" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-suit-heart-fill" viewBox="0 0 16 16">
+                <path d="M4 1c2.21 0 4 1.755 4 3.92C8 2.755 9.79 1 12 1s4 1.755 4 3.92c0 3.263-3.234 4.414-7.608 9.608a.513.513 0 0 1-.784 0C3.234 9.334 0 8.183 0 4.92 0 2.755 1.79 1 4 1" />
+            </svg>
+        </div>
+    </div>
+
+    <!-- Postagem 4 -->
+    <div class="post1">
+        <div class="post-header">
+            <div class="post-img">
+                <img src="imagens/close-up-confident-male-employee-white-collar-shirt-smiling-camera-standing-self-assured-against-studio-background.jpg" alt="João Silva" class="small-img">
+            </div>
+            <h1>João Silva</h1>
+        </div>
+        <h2>Bairro Garcia, Rua Ascurra</h2>
+        <p>A distribuição de água potável é irregular e muitas vezes insuficiente. Há moradores que enfrentam longos períodos sem acesso a água tratada, o que força o uso de fontes não seguras, colocando a saúde da população em risco.</p>
+        <div class="likes">
+            <p><b>Likes: </b><span id="contador-likes">0</span></p>
+            <svg class="like" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-suit-heart-fill" viewBox="0 0 16 16">
+                <path d="M4 1c2.21 0 4 1.755 4 3.92C8 2.755 9.79 1 12 1s4 1.755 4 3.92c0 3.263-3.234 4.414-7.608 9.608a.513.513 0 0 1-.784 0C3.234 9.334 0 8.183 0 4.92 0 2.755 1.79 1 4 1" />
+            </svg>
+        </div>
+    </div>
+
+    <!-- Adicione mais postagens conforme necessário -->
+</div>
+
+<br>
+
+
+        <!-- Funções de JavaScript -->
+         
             <script>
-                //lista denuncias teste para aparecer
+                // Lista de denúncias para aparecer
                 document.addEventListener('DOMContentLoaded', () => {
-            fetch('http://localhost:3000/api/denuncia')
-                .then(response => response.json())
-                .then(denunciasDoBanco => {
-                    const listaDoFront = document.getElementById('lista-denuncias');
-                    for(i=0; i<denunciasDoBanco.length; i++){
-                        const denuncia = denunciasDoBanco[i]
-                        const postDenuncia = document.createElement('div');
-                        postDenuncia.className = 'post1';
-                        
-                        post1.innerHTML = `
-                      <div class="post1">
-                <h1 class="locations">${denuncia.autor}</h1>
-                <h2 class="locations">${denuncia.localizacao}</h2>
-                <p id="mensagem">${denuncia.descricao}</p>
-
-                <div class="likes">
-                    <!-- Elemento para exibir os likes -->
-                    <p><b>Likes: </b><span id="contador-likes">0</span></p>
-                    <svg class="like" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                        class="bi bi-suit-heart-fill" viewBox="0 0 16 16">
-                        <path
-                            d="M4 1c2.21 0 4 1.755 4 3.92C8 2.755 9.79 1 12 1s4 1.755 4 3.92c0 3.263-3.234 4.414-7.608 9.608a.513.513 0 0 1-.784 0C3.234 9.334 0 8.183 0 4.92 0 2.755 1.79 1 4 1" />
-                    </svg>
-                </div>
-
-            </div>
-                                        `;
-                        
-                            listaDenuncia.appendChild(post1);
-                        }})
-                    .catch(error => {
-                        console.error('Erro ao buscar Denuncia:', error);
-                    });
-            });
-
+                    fetch('http://localhost:3000/api/denuncia')
+                        .then(response => response.json())
+                        .then(denunciasDoBanco => {
+                            const listaDoFront = document.getElementById('lista-denuncias');
+                                
+                            // Limpa a lista antes de adicionar novas denúncias
+                            listaDoFront.innerHTML = '';
+                
+                            for (let i = 0; i < denunciasDoBanco.length; i++) {
+                                const denuncia = denunciasDoBanco[i];
+                                const postDenuncia = document.createElement('div');
+                                postDenuncia.className = 'post1';
+                                    
+                                postDenuncia.innerHTML = `
+                                    <div class="post-header">
+                                        <div class="post-img">
+                                            <img src="close-up-confident-male-employee-white-collar-shirt-smiling-camera-standing-self-assured-against-studio-background.jpg" alt="${denuncia.autor}" class="small-img">
+                                        </div>
+                                        <h1>${denuncia.autor}</h1>
+                                    </div>
+                                    <h2>${denuncia.localizacao}</h2>
+                                    <p>${denuncia.descricao}</p>
+                                    <div class="likes">
+                                        <p><b>Likes:</b> <span id="contador-likes-${i}">0</span></p>
+                                        <div class="like" onclick="curtir(${i})">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-suit-heart-fill" viewBox="0 0 16 16">
+                                                <path d="M4 1c2.21 0 4 1.755 4 3.92C8 2.755 9.79 1 12 1s4 1.755 4 3.92c0 3.263-3.234 4.414-7.608 9.608a.513.513 0 0 1-.784 0C3.234 9.334 0 8.183 0 4.92 0 2.755 1.79 1 4 1z" />
+                                            </svg>
+                                        </div>
+                                    </div>
+                                `;
+                                    
+                                listaDoFront.appendChild(postDenuncia);
+                            }
+                        })
+                        .catch(error => {
+                            console.error('Erro ao buscar Denuncias:', error);
+                        });
+                });
+                
+                function curtir(index) {
+                    const contador = document.getElementById(`contador-likes-${index}`);
+                    const currentLikes = parseInt(contador.innerText);
+                    contador.innerText = currentLikes + 1;
+                }
             </script>
+        
 
             <script>
                 const elementos = document.getElementsByClassName('like');
@@ -389,9 +447,8 @@
 
                 const like = localStorage.getItem("like")
             </script>
-
         </div>
-    </div>
+    
 </body>
 
 </html>
