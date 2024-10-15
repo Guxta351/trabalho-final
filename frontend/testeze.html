@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil EcoSanea</title>
+    <link rel="shortcut icon" href="imagens/4995402-gota-d-agua-com-meia-folha-e-onda-d-agua-gratis-vetor-removebg-preview.png" type="image/png">
+
+    <!-- Estilos modernizados -->
+    <link rel="stylesheet" href="style.css">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <style>/* Importação da fonte Ubuntu */
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap');
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Ubuntu', sans-serif;
+}
+
+body {
+    background-color: #85c4f8;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Container principal */
+.container {
+    max-width: 900px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+/* Ícone voltar */
+.voltar {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    font-size: 30px;
+    color: #333;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.voltar:hover {
+    color: #58af9b;
+}
+
+/* Header de perfil */
+.profile-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.profile-header img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+}
+
+.profile-header .h2flex {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.profile-header h1 {
+    font-size: 28px;
+    color: #58af9b;
+}
+
+.profile-header h1:last-child {
+    color: #85c4f8;
+}
+
+.profile-header .bi-stars {
+    margin-left: 10px;
+    font-size: 24px;
+    color: #85c4f8;
+}
+
+/* Informações pessoais */
+.bio {
+    display: flex;
+    align-items: center;
+    margin-bottom: 40px;
+    gap: 20px;
+}
+
+.img_container {
+    flex: 1;
+}
+
+.img_container img {
+    width: 100%;
+    max-width: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.bio-info {
+    flex: 2;
+}
+
+.bio-info h2 {
+    font-size: 22px;
+    margin-bottom: 10px;
+    color: #58af9b;
+}
+
+.bio-info p {
+    font-size: 18px;
+    color: #555;
+    margin-bottom: 10px;
+}
+
+/* Denúncias */
+.posts {
+    margin-top: 20px;
+}
+
+.posts h3 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #58af9b;
+    border-bottom: 2px solid #ddd;
+    padding-bottom: 10px;
+}
+
+.lista-denuncias {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Cartão de Denúncia */
+.post1 {
+    background: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+}
+
+.post-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.post-img img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 10px;
+}
+
+.post1 h1 {
+    font-size: 20px;
+    color: #333;
+}
+
+.post1 h2 {
+    font-size: 18px;
+    margin-bottom: 15px;
+    color: #777;
+}
+
+.post1 p {
+    font-size: 16px;
+    color: #555;
+    line-height: 1.6;
+}
+
+.likes {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 15px;
+}
+
+.like {
+    cursor: pointer;
+    color: #333;
+    transition: color 0.3s;
+}
+
+.like:hover {
+    color: red;
+}
+
+.like.ativo {
+    color: red;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .container {
+        padding: 15px;
+    }
+
+    .bio {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .img_container {
+        margin-bottom: 20px;
+    }
+
+    .voltar {
+        top: 10px;
+        left: 10px;
+        font-size: 24px;
+    }
+
+    .profile-header h1 {
+        font-size: 24px;
+    }
+
+    .bio-info p {
+        font-size: 16px;
+    }
+
+    .posts h3 {
+        font-size: 20px;
+    }
+
+    .post1 h1 {
+        font-size: 18px;
+    }
+
+    .post1 h2 {
+        font-size: 16px;
+    }
+
+    .post1 p {
+        font-size: 14px;
+    }
+
+    .like {
+        width: 20px;
+        height: 20px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+    <div class="container">
+        <!-- Ícone voltar -->
+        <a href="principal.html" class="voltar">
+            <i class="bi bi-arrow-left-circle-fill"></i>
+        </a>
+
+        <!-- Header do perfil -->
+        <div class="profile-header">
+            <img src="imagens/EcoSanea-removebg-preview.png" class="profile-picture" alt="EcoSanea">
+            <div class="h2flex">
+                <h1>Eco</h1>
+                <h1>Sanea</h1>
+                <i class="bi bi-stars"></i>
+            </div>
+        </div>
+
+        <!-- Informações pessoais -->
+        <div class="bio">
+            <div class="img_container">
+                <img src="imagens/close-up-confident-male-employee-white-collar-shirt-smiling-camera-standing-self-assured-against-studio-background.jpg" alt="João Silva">
+            </div>
+            <div class="bio-info">
+                <h2>João Silva</h2>
+                <p>Santa Catarina, Brasil</p>
+                <p>Olá! Sou João, gosto de programar, viajar e explorar novos lugares.</p>
+            </div>
+        </div>
+
+        <!-- Denúncias -->
+        <div class="posts">
+            <h3>Denúncias</h3>
+
+            <!-- Container para as postagens carregadas dinamicamente -->
+            <div class="lista-denuncias" id="lista-denuncias">
+                <!-- Denúncias serão inseridas aqui via JavaScript -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="app.js"></script>
+</body>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const listaDenuncias = document.getElementById('lista-denuncias');
+
+    // Função para carregar denúncias do backend
+    const carregarDenuncias = async () => {
+        try {
+            const response = await fetch('http://localhost:3000/api/denuncia');
+            if (!response.ok) throw new Error('Erro ao carregar denúncias');
+            const denunciasDoBanco = await response.json();
+            listaDenuncias.innerHTML = ''; // Limpa denúncias existentes
+
+            denunciasDoBanco.forEach((denuncia, index) => {
+                criarCartaoDenuncia(denuncia, index);
+            });
+        } catch (error) {
+            console.error('Erro ao buscar Denuncias:', error);
+            listaDenuncias.innerHTML = '<p>Não foi possível carregar as denúncias.</p>';
+        }
+    };
+
+    // Função para criar um cartão de denúncia
+    const criarCartaoDenuncia = (denuncia, index) => {
+        const postDenuncia = document.createElement('div');
+        postDenuncia.className = 'post1';
+
+        postDenuncia.innerHTML = `
+            <div class="post-header">
+                <div class="post-img">
+                    <img src="imagens/close-up-confident-male-employee-white-collar-shirt-smiling-camera-standing-self-assured-against-studio-background.jpg" alt="${denuncia.autor}" class="small-img">
+                </div>
+                <h1>${denuncia.autor}</h1>
+            </div>
+            <h2>${denuncia.localizacao}</h2>
+            <p>${denuncia.descricao}</p>
+            <div class="likes">
+                <p><strong>Likes:</strong> <span id="contador-likes-${index}">0</span></p>
+                <div class="like" data-index="${index}">
+                    <i class="bi bi-suit-heart-fill"></i>
+                </div>
+            </div>
+        `;
+
+        listaDenuncias.appendChild(postDenuncia);
+    };
+
+    // Função para lidar com o like
+    const adicionarEventoLike = () => {
+        listaDenuncias.addEventListener('click', (event) => {
+            if (event.target.closest('.like')) {
+                const likeElement = event.target.closest('.like');
+                const index = likeElement.getAttribute('data-index');
+                const contador = document.getElementById(`contador-likes-${index}`);
+
+                // Verificar se já foi curtido
+                if (likeElement.classList.contains('ativo')) {
+                    likeElement.classList.remove('ativo');
+                    contador.textContent = parseInt(contador.textContent) - 1;
+                } else {
+                    likeElement.classList.add('ativo');
+                    contador.textContent = parseInt(contador.textContent) + 1;
+                }
+
+                // Opcional: Enviar atualização de like para o backend
+                // enviarLike(denunciaId);
+            }
+        });
+    };
+
+    // Função para enviar like para o backend (opcional)
+    const enviarLike = async (id) => {
+        try {
+            const response = await fetch(`http://localhost:3000/api/denuncia/${id}/like`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ /* dados adicionais, se necessário */ })
+            });
+
+            if (!response.ok) throw new Error('Erro ao enviar like');
+            // Atualização ou feedback adicional
+        } catch (error) {
+            console.error('Erro ao enviar like:', error);
+            alert('Não foi possível registrar o like.');
+        }
+    };
+
+    // Inicialização
+    carregarDenuncias();
+    adicionarEventoLike();
+});
+</script>
+
+<script>
+const express = require('express');
+const cors = require('cors');
+const app = express();
+const PORT = 3000;
+
+app.use(cors());
+app.use(express.json());
+
+// Dados de exemplo
+let denuncias = [
+    {
+        id: 1,
+        autor: 'João Silva',
+        localizacao: 'Bairro Garcia, Rua Ascurra',
+        descricao: 'A distribuição de água potável é irregular e muitas vezes insuficiente. Há moradores que enfrentam longos períodos sem acesso a água tratada, o que força o uso de fontes não seguras, colocando a saúde da população em risco.'
+    },
+    // Adicione mais denúncias conforme necessário
+];
+
+// Rota para obter todas as denúncias
+app.get('/api/denuncia', (req, res) => {
+    res.json(denuncias);
+});
+
+// Rota para adicionar uma nova denúncia
+app.post('/api/denuncia', (req, res) => {
+    const { autor, localizacao, descricao } = req.body;
+    const novaDenuncia = {
+        id: denuncias.length + 1,
+        autor,
+        localizacao,
+        descricao
+    };
+    denuncias.push(novaDenuncia);
+    res.status(201).json(novaDenuncia);
+});
+
+// Rota para adicionar like a uma denúncia (exemplo simples)
+app.post('/api/denuncia/:id/like', (req, res) => {
+    const id = parseInt(req.params.id);
+    const denuncia = denuncias.find(d => d.id === id);
+    if (denuncia) {
+        // Lógica para adicionar like (exemplo simples)
+        denuncia.likes = (denuncia.likes || 0) + 1;
+        res.json({ likes: denuncia.likes });
+    } else {
+        res.status(404).json({ message: 'Denúncia não encontrada' });
+    }
+});
+
+app.listen(PORT, () => {
+    console.log(`Servidor rodando na porta ${PORT}`);
+});
+</script>
+</html>
