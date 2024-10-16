@@ -1,332 +1,414 @@
-<html>
+<!DOCTYPE html>
+<html lang="pt-BR">
 
 <head>
-    <meta charset="UFT-8">
-    <title>www.Ecosanea.com.br</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: "Ubuntu", sans-serif;
-        }
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ecosanea - Denúncias</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+</head>
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Ubuntu", sans-serif;
+}
 
-        body {
-            background-color: #85c4f8;
-        }
+body {
+    display: flex;
+    min-height: 100vh;
+    background-color: #85c4f8;
+    position: relative;
+}
 
-        nav.menu-lateral {
-            width: 80px;
-            height: 100%;
-            background-color: rgb(255, 255, 255);
-            padding: 40px 0 40px 1%;
-            box-shadow: 3px 0 0 rgb(137, 203, 247);
+/* Menu Lateral */
+nav.menu-lateral {
+    width: 80px;
+    height: 100%;
+    background-color: #fff;
+    padding: 40px 0 40px 1%;
+    box-shadow: 3px 0 0 rgb(137, 203, 247);
+    position: fixed;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    transition: width 0.2s;
+}
 
-            position: fixed;
-            top: 0;
-            left: 0;
-            overflow: hidden;
-            transition: .2s;
-        }
+nav.menu-lateral:hover {
+    width: 300px;
+}
 
-        nav.menu-lateral:hover {
-            width: 300px;
-        }
+.btn-expandir {
+    width: 100%;
+    padding-left: 10px;
+}
 
-        .btn-expandir {
-            width: 100%;
-            padding-left: 10px;
-        }
+.btn-expandir > i {
+    color: rgb(128, 197, 243);
+    font-size: 24px;
+    cursor: pointer;
+}
 
-        .btn-expandir>i {
-            color: rgb(128, 197, 243);
-            font-size: 24px;
-            cursor: pointer;
-        }
+ul {
+    height: 100%;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
 
-        ul {
-            height: 100%;
-            list-style-type: none;
-        }
+ul li.item-menu {
+    transition: background-color 0.2s;
+}
 
-        ul li.item-menu {
-            transition: .2s;
-        }
+ul li.item-menu:hover {
+    background-color: #6dc7e2;
+    border-radius: 8px;
+}
 
-        ul li.item-menu:hover {
-            background-color: rgb(109, 199, 226);
-        }
+ul li.item-menu a {
+    color: rgb(12, 12, 12);
+    text-decoration: none;
+    font-size: 20px;
+    padding: 20px 4%;
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    line-height: 30px;
+}
 
-        ul li.item-menu a {
-            color: rgb(12, 12, 12);
-            text-decoration: none;
-            font-size: 20px;
-            padding: 20px 4%;
-            display: flex;
-            margin-bottom: 20px;
-            line-height: 30px;
-        }
+ul li.item-menu a .txt-link {
+    margin-left: 40px;
+}
 
-        ul li.item-menu a .txt-link {
-            margin-left: 40px;
+ul li.item-menu a .icon > i {
+    font-size: 30px;
+    margin-left: 10px;
+}
 
-        }
+/* Header */
+header {
+    width: calc(100% - 80px);
+    padding: 20px;
+    margin-left: 80px;
+    display: flex;
+    justify-content: center;
+    position: fixed;
+    top: 0;
+    background-color: #85c4f8;
+    z-index: 1;
+    transition: margin-left 0.2s, width 0.2s;
+}
 
-        ul li.item-menu a .icon>i {
-            font-size: 30px;
-            margin-left: 10px;
-        }
+nav.menu-lateral:hover + header {
+    margin-left: 300px;
+    width: calc(100% - 300px);
+}
 
-        img {
-            width: 8%;
-            margin-left: 90%;
-        }
 
-        .pesquisa {
-            background-color: rgb(252, 252, 252);
-            border-radius: 15px;
-            margin-top: 2%;
-            margin-left: 34%;
-            position: absolute;
-            width: 30%;
-            height: 3%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+.pesquisa {
+    display: flex;
+    align-items: center;
+    background: #fff;
+    border-radius: 8px;
+    padding: 5px 10px;
+    width: 55%;
+    max-width: 600px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
 
-        }
+.pesquisa input {
+    border: none;
+    outline: none;
+    flex: 1;
+    padding: 10px;
+    font-size: 16px;
+}
 
-        .pesquisa-input {
-            width: 520px;
-            border: none;
-            outline: none;
-        }
+.pesquisa button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0 10px;
+    color: #333;
+}
 
-        .cartao {
-            width: 40%;
+.pesquisa button:hover {
+    color: #6dc7e2;
+}
+
+/* Main Content */
+main {
+    flex: 1;
+    padding: 100px 20px 20px 20px; /* Ajuste para não ficar atrás do header */
+    margin-left: 80px;
+    transition: margin-left 0.3s;
+}
+
+nav.menu-lateral.expandir ~ main {
+    margin-left: 250px;
+}
+
+.lista-denuncias {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Cartão de Denúncia */
+.cartao {
+    width: 40%;
             border: 2px solid black;
             border-radius: 15px;
             padding: 3%;
             margin-left: 30%;
             background-color: rgb(255, 255, 255);
             margin-bottom: 20px;
-        }
+}
 
-        .rodape {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        
-        }
+.cartao .descricao {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
 
-        .lista {
-            display: flex;
-            justify-content: flex-start;
-            flex-wrap: wrap;
-        }
+.cartao .localizacao {
+    font-size: 14px;
+    color: #555;
+}
 
-        .Denuncia {
-            margin-left: 23%;
-            margin-top: 0%;
-        }
+.cartao .rodape {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 15px;
+}
 
-        .coracao1 {
-            margin-left: 95%;
-            margin-top: 1px;
-        }
+.cartao .coracao {
+    cursor: pointer;
+    color: #333;
+    transition: color 0.3s;
+}
 
-        .icone-perfil {
-            margin-top: 50%;
-            margin-left: 2%;
-        }
+.cartao .coracao.ativo {
+    color: red;
+}
 
-        .icone-perfil svg {
-            width: 10%;
-        }
+/* Logo */
+.logo {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 80px;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
 
-        .coracao:hover {
-            background-color: transparent;
-            color: red;
-            transition: 2.s;
-        }
-    </style>
-    <meta charset="UFT-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="Width=device-width, initial-scale=1.0">
-    <title>SideBar</title>
+.logo:hover {
+    transform: scale(1.1);
+}
 
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-</head>
+/* Responsividade */
+@media (max-width: 768px) {
+    nav.menu-lateral {
+        width: 60px;
+    }
 
+    nav.menu-lateral.expandir {
+        width: 200px;
+    }
+
+    header {
+        padding: 10px;
+    }
+
+    .pesquisa {
+        width: 80%;
+    }
+
+    .logo {
+        width: 60px;
+    }
+}
+</style>
 <body>
     <nav class="menu-lateral">
-
         <div class="btn-expandir">
             <i class="bi bi-list" id="btn-exp"></i>
         </div>
-
         <ul>
             <li class="item-menu">
                 <a href="perfil.html">
-                    <span class="icon"><i class="bi bi-calendar"></i></span>
+                    <i class="bi bi-calendar"></i>
                     <span class="txt-link">Conta</span>
                 </a>
             </li>
             <li class="item-menu">
                 <a href="entrar.html">
-                    <span class="icon"><i class="bi bi-person"></i></span>
-                    <span class="txt-link">login</span></a>
+                    <i class="bi bi-person"></i>
+                    <span class="txt-link">Login</span>
                 </a>
             </li>
         </ul>
-
     </nav>
 
-    <script>
-        var menuitem = document.querySelectorAll('.item-menu')
+    <header>
+        <div class="pesquisa">
+            <input type="text" id="pesquisa-input" placeholder="Qual sua denúncia?">
+            <button id="lupa">
+                <i class="bi bi-search"></i>
+            </button>
+        </div>
+    </header>
 
-        function selectLink() {
-            menuitem.forEach((item) =>
-                item.classList.remove('ativo')
-            )
-            this.classList.add('ativo')
-        }
+    <main>
+        <div class="lista-denuncias" id="lista-denuncias">
+            <!-- Denúncias serão inseridas aqui via JavaScript -->
+        </div>
+    </main>
 
-        menuitem.forEach((item) =>
-            item.addEventListener('click', selectLink)
-        )
+    <!-- Imagem de Logo -->
+    <img src="imagens/EcoSanea-removebg-preview.png" alt="Ecosanea Logo" class="logo">
 
-        //expandir menu
-
-        var btnExp = document.querySelector('#btn-exp')
-        var menuSide = document.querySelector('.menu-lateral')
-
-        btnExp.addEventListener('click', function () {
-            menuSide.classList.toggle('expandir')
-        })
-    </script>
-
-    <div class="pesquisa">
-        <input class="pesquisa-input" id="pesquisa-input" placeholder="Qual sua Denuncia">
-        <svg xmlns="http://www.w3.org/2000/svg" id="lupa" width="32" height="32" fill="currentColor"
-            class="bi bi-arrow-up-short" viewBox="0 0 16 16">
-            <path fill-rule="evenodd"
-                d="M8 12a.5.5 0 0 0 .5-.5V5.707l2.146 2.147a.5.5 0 0 0 .708-.708l-3-3a.5.5 0 0 0-.708 0l-3 3a.5.5 0 1 0 .708.708L7.5 5.707V11.5a.5.5 0 0 0 .5.5" />
-        </svg>
-    </div>
-    <img src="imagens/EcoSanea-removebg-preview.png">
-    </div>
-    <br>
-    <br><br>
-    <div class="lista-denuncias" id="lista-denuncias">
-        
-    </div>
-    
-    <br><br>
-    <script>
-        function salvarDenuncia() {
-            let nome = document.getElementById('pergunta').valeu
-            localStorage.setItem('denucia', pergunta)
-            exibirMsg('Denuncia feita com sucesso')
-        }
-
-        function exibirMsg(mensagem) {
-            let pMsg = document.getElementById('mensagem')
-            pMsg.textContent = mensagem
-        }
-
-        function salvarLike() {
-            let nome = document.getElementById('Like').valeu
-            localStorage.setItem('Like', pergunta)
-        }
-
-    </script>
-
-    <script>
-        document.getElementById('lupa').addEventListener('click', function (event) {
-            event.preventDefault(); // Evita o envio padrão do formulário
-
-            // Obtém os valores dos campos do formulário
-            const descricao = document.getElementById('pesquisa-input').value;
-
-            // Obtém da memória o autor da denuncia
-            const autor = JSON.parse(localStorage.getItem('usuario'))
-
-            // Cria o objeto de dados a ser enviado
-            const dados = {
-                descricao: descricao,
-                autor: autor.id_usuario,
-                localizacao: autor.endereco
-            };
-
-            // Envia os dados para o back-end usando Fetch API
-            fetch('http://localhost:3000/denuncia', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-
-                body: JSON.stringify(dados)
-            })
-                .then(response => response.json())
-                .then(data => {
-                    document.getElementById('pesquisa-input').value = ''; // Reseta o formulário
-                    alert('Denúncia enviada com sucesso!');
-                })
-                .catch(error => {
-                    console.error('Houve um problema com a solicitação:', error);
-                    alert('Falha ao enviar denúncia.');
-                });
-        });
-    </script>
-    <script>
-        fetch('http://localhost:3000/denuncia')
-            .then(resposta => resposta.json())
-            .then(listaDenunciasBackend => {
-                const listaDenunciasFront = document.getElementById('lista-denuncias')
-                for(i=0; i<listaDenunciasBackend.length; i++){
-                    const denuncia = listaDenunciasBackend[i]
-                    const cartaoDenuncia = document.createElement('div');
-                    cartaoDenuncia.className = 'cartao';
-
-                    cartaoDenuncia.innerHTML=`
-                        <p class="descrição">${denuncia.descricao}</p>
-                        <div class="rodape">
-                            <div id="coracao" class="coracao1" onclick="clickCoracao()">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                                    class="bi bi-suit-heart-fill" viewBox="0 0 16 16">
-                                    <path
-                                        d="M4 1c2.21 0 4 1.755 4 3.92C8 2.755 9.79 1 12 1s4 1.755 4 3.92c0 3.263-3.234 4.414-7.608 9.608a.513.513 0 0 1-.784 0C3.234 9.334 0 8.183 0 4.92 0 2.755 1.79 1 4 1" />
-                                </svg>
-                            </div>
-                            <div>
-                            </div>
-                        </div>
-                          <p id="mensagem">${denuncia.localizacao}</p>
-                    `
-
-                    listaDenunciasFront.appendChild(cartaoDenuncia)
-                }
-            })
-    </script>
-    <script>
-        var apertado = false;
-
-        function clickCoracao(){
-
-            if (apertado == false) {
-                document.getElementById('coracao').style.color = 'red'
-                apertado = true
-
-            } else {
-                document.getElementById('coracao').style.color = 'black'
-                apertado = false;
-
-            }
-        }
-
-    </script>
-
+    <!-- Scripts -->
+    <script src="app.js"></script>
 </body>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const btnExp = document.getElementById('btn-exp');
+    const menuSide = document.querySelector('.menu-lateral');
+    const listaDenuncias = document.getElementById('lista-denuncias');
+    const inputPesquisa = document.getElementById('pesquisa-input');
+    const btnLupa = document.getElementById('lupa');
+
+    // Toggle do menu lateral
+    btnExp.addEventListener('click', () => {
+        menuSide.classList.toggle('expandir');
+    });
+
+    // Função para carregar denúncias do backend
+    const carregarDenuncias = async () => {
+        try {
+            const response = await fetch('http://localhost:3000/denuncia');
+            if (!response.ok) throw new Error('Erro ao carregar denúncias');
+            const denuncias = await response.json();
+            listaDenuncias.innerHTML = ''; // Limpa denúncias existentes
+            denuncias.forEach(criarCartaoDenuncia);
+        } catch (error) {
+            console.error(error);
+            alert('Não foi possível carregar as denúncias.');
+        }
+    };
+
+    // Função para criar um cartão de denúncia
+    const criarCartaoDenuncia = (denuncia) => {
+        const cartao = document.createElement('div');
+        cartao.classList.add('cartao');
+
+        cartao.innerHTML = `
+            <p class="descricao">${denuncia.descricao}</p>
+            <small class="localizacao">Localização: ${denuncia.localizacao}</small>
+            <div class="rodape">
+                <div class="coracao" data-id="${denuncia.id}">
+                    <i class="bi bi-suit-heart-fill"></i>
+                </div>
+            </div>
+        `;
+
+        // Evento de like
+        const coracao = cartao.querySelector('.coracao');
+        coracao.addEventListener('click', () => toggleLike(denuncia.id, coracao));
+
+        listaDenuncias.appendChild(cartao);
+    };
+
+    // Função para enviar nova denúncia
+    const enviarDenuncia = async () => {
+        const descricao = inputPesquisa.value.trim();
+        if (!descricao) {
+            alert('Por favor, insira uma descrição para a denúncia.');
+            return;
+        }
+
+        // Obter dados do usuário autenticado (exemplo estático)
+        const autor = {
+            id_usuario: 1, // Este valor deve vir da autenticação real
+            endereco: 'Endereço Exemplo' // Este valor deve vir da autenticação real
+        };
+
+        const novaDenuncia = {
+            descricao,
+            autor: autor.id_usuario,
+            localizacao: autor.endereco
+        };
+
+        try {
+            const response = await fetch('http://localhost:3000/denuncia', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(novaDenuncia)
+            });
+
+            if (!response.ok) throw new Error('Falha ao enviar denúncia.');
+
+            alert('Denúncia enviada com sucesso!');
+            inputPesquisa.value = '';
+            carregarDenuncias();
+        } catch (error) {
+            console.error(error);
+            alert('Não foi possível enviar a denúncia.');
+        }
+    };
+
+    // Função para alternar like
+    const toggleLike = async (id, elemento) => {
+        try {
+            // Aqui você pode implementar a lógica para enviar o like para o backend
+            // Exemplo: PATCH ou POST para atualizar o like
+            // Por enquanto, apenas alterna a classe 'ativo'
+            elemento.classList.toggle('ativo');
+        } catch (error) {
+            console.error(error);
+            alert('Não foi possível registrar o like.');
+        }
+    };
+
+    // Evento de clique no botão de busca/lupa
+    btnLupa.addEventListener('click', enviarDenuncia);
+
+    // Carregar denúncias ao iniciar
+    carregarDenuncias();
+});
+</script>
+<script>
+const express = require('express');
+const cors = require('cors');
+const app = express();
+
+app.use(cors());
+app.use(express.json());
+
+let denuncias = []; // Banco de dados em memória para exemplo
+
+app.get('/denuncia', (req, res) => {
+    res.json(denuncias);
+});
+
+app.post('/denuncia', (req, res) => {
+    const { descricao, autor, localizacao } = req.body;
+    const id = denuncias.length + 1;
+    const novaDenuncia = { id, descricao, autor, localizacao };
+    denuncias.push(novaDenuncia);
+    res.status(201).json(novaDenuncia);
+});
+
+// Iniciar o servidor
+app.listen(3000, () => {
+    console.log('Servidor rodando na porta 3000');
+});
+</script>
 
 </html>
